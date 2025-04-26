@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discite: JavaScript Fundamentals</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="sticky-header">
+        <div class="container header-container">
+            <h1 class="logo">Discite</h1>
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="index.html" class="nav-link">Introduction</a>
+                <a href="html.html" class="nav-link">HTML</a>
+                <a href="css.html" class="nav-link">CSS</a>
+                <a href="javascript.html" class="nav-link">JavaScript</a>
+                <a href="tools.html" class="nav-link">Tools & Next Steps</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container main-content">
+
+        <section id="javascript" class="content-section">
+             <h2 class="text-3xl md:text-4xl font-bold section-header">
+                JavaScript: Making Web Pages Interactive
+            </h2>
+            <p class="mb-4">JavaScript (JS) brings web pages to life by enabling dynamic content updates, user interaction handling, animations, data fetching, and much more.</p>
+
+            <h3>Including JavaScript</h3>
+             <ul class="list-disc list-inside mb-4">
+                 <li><strong>External File (Recommended):</strong> <code>&lt;script src="js/main.js" defer&gt;&lt;/script&gt;</code> usually before <code>&lt;/body&gt;</code>.</li>
+                 <li><strong>Internal Script:</strong> <code>&lt;script&gt;...&lt;/script&gt;</code> tags.</li>
+                 <li><code>defer</code> attribute downloads script in parallel, executes after HTML parsing.</li>
+                 <li><code>async</code> attribute downloads in parallel, executes whenever ready (order not guaranteed).</li>
+             </ul>
+
+            <h3>Core Concepts</h3>
+            <h4>Variables & Scope</h4>
+             <ul class="list-disc list-inside mb-4">
+                 <li>Declaration: <code>let</code> (reassignable, block-scoped), <code>const</code> (constant binding, block-scoped), <code>var</code> (avoid, function-scoped).</li>
+                 <li>Scope: Global, Module, Function, Block.</li>
+                 <li>Hoisting: Declarations moved up, but <code>let</code>/<code>const</code> have Temporal Dead Zone.</li>
+             </ul>
+
+            <h4>Data Types</h4>
+             <ul class="list-disc list-inside mb-4">
+                 <li>Primitives: <code>string</code>, <code>number</code>, <code>boolean</code>, <code>null</code>, <code>undefined</code>, <code>symbol</code>, <code>bigint</code>.</li>
+                 <li>Object: Collections (plain objects, arrays, functions, dates, etc.).</li>
+             </ul>
+
+            <h4>Operators</h4>
+             <ul class="list-disc list-inside mb-4">
+                 <li>Arithmetic (<code>+</code>,<code>-</code>,<code>*</code>,<code>/</code>,<code>%</code>,<code>**</code>), Assignment (<code>=</code>,<code>+=</code>), Comparison (<code>===</code>,<code>!==</code>,<code>&gt;</code>), Logical (<code>&&</code>,<code>||</code>,<code>!</code>), Ternary (<code>? :</code>), Type (<code>typeof</code>), Spread/Rest (<code>...</code>), Optional Chaining (<code>?.</code>), Nullish Coalescing (<code>??</code>).</li>
+             </ul>
+
+            <h4>Control Flow</h4>
+             <ul class="list-disc list-inside mb-4">
+                <li>Conditionals: <code>if/else if/else</code>, <code>switch</code>.</li>
+                <li>Loops: <code>for</code>, <code>for...of</code> (for iterables), <code>for...in</code> (for object keys), <code>while</code>, <code>do...while</code>.</li>
+                <li>Error Handling: <code>try...catch...finally</code>.</li>
+             </ul>
+
+            <h4>Functions</h4>
+            <p class="mb-2">Reusable code blocks.</p>
+             <ul class="list-disc list-inside mb-4">
+                 <li>Declaration (<code>function name(){}</code>), Expression (<code>const n = function(){}</code>), Arrow (<code>const n = ()=>{}</code>).</li>
+                 <li>Arrow functions have lexical <code>this</code>.</li>
+                 <li>Parameters (definition), Arguments (call). Default & Rest parameters.</li>
+                 <li><code>return</code> value.</li>
+             </ul>
+
+            <h4>Arrays</h4>
+            <p class="mb-2">Ordered lists.</p>
+             <ul class="list-disc list-inside mb-4">
+                 <li>Creation: <code>[]</code>. Access: <code>arr[i]</code>. Length: <code>arr.length</code>.</li>
+                 <li>Methods: <code>forEach</code>, <code>map</code>, <code>filter</code>, <code>reduce</code>, <code>find</code>, <code>push/pop</code>, <code>shift/unshift</code>, <code>slice</code>, <code>splice</code>, <code>join</code>, <code>includes</code>.</li>
+             </ul>
+
+            <h4>Objects</h4>
+            <p class="mb-2">Key-value pairs.</p>
+             <ul class="list-disc list-inside mb-4">
+                <li>Creation: <code>{}</code>. Access: <code>obj.key</code> or <code>obj['key']</code>.</li>
+                <li>Methods: Functions as properties. <code>this</code> keyword context.</li>
+                <li><code>Object.keys/values/entries</code>. Spread syntax <code>{...obj}</code>.</li>
+             </ul>
+
+            <h4>DOM Manipulation</h4>
+            <p class="mb-2">Interacting with HTML structure.</p>
+             <ul class="list-disc list-inside mb-4">
+                 <li>Selecting: <code>getElementById</code>, <code>querySelector</code>, <code>querySelectorAll</code>.</li>
+                 <li>Traversing: <code>.parentElement</code>, <code>.children</code>, <code>.nextElementSibling</code>.</li>
+                 <li>Changing Content: <code>.textContent</code>, <code>.innerHTML</code>.</li>
+                 <li>Changing Attributes: <code>.setAttribute()</code>, <code>.getAttribute()</code>, direct properties (<code>img.src</code>).</li>
+                 <li>Changing Styles: <code>.style</code> (inline), <code>.classList</code> (add/remove/toggle - preferred).</li>
+                 <li>Creating/Adding/Removing: <code>createElement</code>, <code>append/prepend</code>, <code>remove</code>.</li>
+             </ul>
+
+            <h4>Events & Event Listeners</h4>
+            <p class="mb-2">Responding to user actions.</p>
+             <ul class="list-disc list-inside mb-4">
+                 <li>Attaching: <code>element.addEventListener('eventName', handlerFn)</code>.</li>
+                 <li>Common Events: <code>click</code>, <code>keydown</code>, <code>submit</code>, <code>load</code>, <code>DOMContentLoaded</code>, <code>change</code>, <code>input</code>, <code>mouseover</code>.</li>
+                 <li>Event Object: Contains details (<code>event.target</code>), methods (<code>event.preventDefault()</code>).</li>
+             </ul>
+
+            <div class="interactive-demo">
+                <h4>Interactive Demo</h4>
+                <p>Enter some text and click the button or press Enter.</p>
+                <label for="demo-input" class="block mb-1 text-sm font-medium">Your Text:</label>
+                <input type="text" id="demo-input" class="border p-1 rounded w-full md:w-1/2 mb-2" placeholder="Type here...">
+                <button id="demo-action-button">Update Message</button>
+                <div id="demo-output" class="output-area">Output will appear here...</div>
+            </div>
+             <div class="code-block-wrapper">
+                <pre><code class="language-javascript">
+<span class="js-comment">// JS for the demo above (in js/main.js)</span>
+<span class="js-keyword">const</span> <span class="js-variable">input</span> = document.<span class="js-method">querySelector</span>(<span class="js-string">'#demo-input'</span>);
+<span class="js-keyword">const</span> <span class="js-variable">button</span> = document.<span class="js-method">querySelector</span>(<span class="js-string">'#demo-action-button'</span>);
+<span class="js-keyword">const</span> <span class="js-variable">output</span> = document.<span class="js-method">querySelector</span>(<span class="js-string">'#demo-output'</span>);
+
+<span class="js-keyword">function</span> <span class="js-function">updateOutput</span>() {
+  <span class="js-keyword">const</span> <span class="js-variable">text</span> = <span class="js-variable">input</span>.<span class="js-variable">value</span>.<span class="js-method">trim</span>();
+  <span class="js-variable">output</span>.<span class="js-variable">textContent</span> = <span class="js-variable">text</span> ? <span class="js-string">`You entered: "${<span class="js-variable">text</span>}"`</span> : <span class="js-string">'Please enter text!'</span>;
+  <span class="js-variable">input</span>.<span class="js-variable">value</span> = <span class="js-string">''</span>;
+  <span class="js-variable">input</span>.<span class="js-method">focus</span>();
+}
+
+<span class="js-keyword">if</span> (<span class="js-variable">button</span>) <span class="js-variable">button</span>.<span class="js-method">addEventListener</span>(<span class="js-string">'click'</span>, <span class="js-variable">updateOutput</span>);
+<span class="js-keyword">if</span> (<span class="js-variable">input</span>) <span class="js-variable">input</span>.<span class="js-method">addEventListener</span>(<span class="js-string">'keydown'</span>, (<span class="js-parameter">e</span>) <span class="js-operator">=></span> {
+    <span class="js-keyword">if</span> (<span class="js-variable">e</span>.<span class="js-variable">key</span> === <span class="js-string">'Enter'</span>) <span class="js-function">updateOutput</span>();
+});
+                </code></pre>
+                <button class="copy-button" aria-label="Copy code to clipboard">Copy</button>
+            </div>
+
+            <h4>Asynchronous JavaScript</h4>
+            <p class="mb-2">Handling operations that take time.</p>
+             <ul class="list-disc list-inside mb-4">
+                 <li>Callbacks, Promises (<code>.then/.catch</code>), <code>async/await</code> (modern standard).</li>
+                 <li>Fetch API for network requests.</li>
+             </ul>
+             <div class="code-block-wrapper">
+                <pre><code class="language-javascript">
+<span class="js-comment">// Example async/await with Fetch</span>
+<span class="js-keyword">async</span> <span class="js-keyword">function</span> <span class="js-function">getUser</span>(<span class="js-parameter">id</span>) {
+  <span class="js-keyword">try</span> {
+    <span class="js-keyword">const</span> <span class="js-variable">response</span> = <span class="js-keyword">await</span> <span class="js-method">fetch</span>(<span class="js-string">`https://jsonplaceholder.typicode.com/users/${<span class="js-variable">id</span>}`</span>);
+    <span class="js-keyword">if</span> (<span class="js-operator">!</span><span class="js-variable">response</span>.<span class="js-variable">ok</span>) <span class="js-keyword">throw</span> <span class="js-keyword">new</span> <span class="js-method">Error</span>(<span class="js-variable">response</span>.<span class="js-variable">statusText</span>);
+    <span class="js-keyword">const</span> <span class="js-variable">user</span> = <span class="js-keyword">await</span> <span class="js-variable">response</span>.<span class="js-method">json</span>();
+    <span class="js-variable">console</span>.<span class="js-method">log</span>(<span class="js-variable">user</span>);
+  } <span class="js-keyword">catch</span> (<span class="js-variable">error</span>) {
+    <span class="js-variable">console</span>.<span class="js-method">error</span>(<span class="js-string">'Fetch failed:'</span>, <span class="js-variable">error</span>);
+  }
+}
+<span class="js-comment">// getUser(1);</span>
+                </code></pre>
+                <button class="copy-button" aria-label="Copy code to clipboard">Copy</button>
+            </div>
+            <div id="user-output" class="output-area bg-gray-100 mt-4">User data will load here if fetch is called...</div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-container">
+            <p>&copy; 2025 Discite. Keep Building!</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+</body>
+</html>

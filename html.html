@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discite: HTML Fundamentals</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="sticky-header">
+        <div class="container header-container">
+            <h1 class="logo">Discite</h1>
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="index.html" class="nav-link">Introduction</a>
+                <a href="html.html" class="nav-link">HTML</a>
+                <a href="css.html" class="nav-link">CSS</a>
+                <a href="javascript.html" class="nav-link">JavaScript</a>
+                <a href="tools.html" class="nav-link">Tools & Next Steps</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container main-content">
+
+        <section id="html" class="content-section">
+            <h2 class="text-3xl md:text-4xl font-bold section-header">
+                HTML: Structuring the Web
+            </h2>
+            <p class="mb-4">HTML (HyperText Markup Language) uses "tags" (elements enclosed in angle brackets <code>&lt; &gt;</code>) to define the structure and meaning of content on a webpage. Most tags come in pairs: an opening tag (e.g., <code>&lt;p&gt;</code>) and a closing tag (e.g., <code>&lt;/p&gt;</code>).</p>
+
+            <h3>Basic Document Structure</h3>
+            <p class="mb-2">Every HTML document follows this fundamental structure:</p>
+            <div class="code-block-wrapper">
+                <pre><code class="language-html">
+<span class="html-comment">&lt;!-- Declares the document type (HTML5) --&gt;</span>
+&lt;!DOCTYPE html&gt;
+
+<span class="html-comment">&lt;!-- The root element, language attribute is important --&gt;</span>
+&lt;<span class="html-tag">html</span> <span class="html-attr">lang</span>="<span class="html-value">en</span>"&gt;
+
+  <span class="html-comment">&lt;!-- Head contains meta-information (not displayed) --&gt;</span>
+  &lt;<span class="html-tag">head</span>&gt;
+    &lt;<span class="html-tag">meta</span> <span class="html-attr">charset</span>="<span class="html-value">UTF-8</span>"&gt; <span class="html-comment">&lt;!-- Character encoding --&gt;</span>
+    &lt;<span class="html-tag">meta</span> <span class="html-attr">name</span>="<span class="html-value">viewport</span>" <span class="html-attr">content</span>="<span class="html-value">width=device-width, initial-scale=1.0</span>"&gt; <span class="html-comment">&lt;!-- For responsive design --&gt;</span>
+    &lt;<span class="html-tag">title</span>&gt;Page Title&lt;/<span class="html-tag">title</span>&gt; <span class="html-comment">&lt;!-- Shows in browser tab --&gt;</span>
+    &lt;<span class="html-tag">link</span> <span class="html-attr">rel</span>="<span class="html-value">stylesheet</span>" <span class="html-attr">href</span>="<span class="html-value">css/style.css</span>"&gt; <span class="html-comment">&lt;!-- Link to CSS --&gt;</span>
+  &lt;/<span class="html-tag">head</span>&gt;
+
+  <span class="html-comment">&lt;!-- Body contains the visible page content --&gt;</span>
+  &lt;<span class="html-tag">body</span>&gt;
+    &lt;<span class="html-tag">h1</span>&gt;Main Heading&lt;/<span class="html-tag">h1</span>&gt;
+    &lt;<span class="html-tag">p</span>&gt;This is a paragraph.&lt;/<span class="html-tag">p</span>&gt;
+  &lt;/<span class="html-tag">body</span>&gt;
+
+&lt;/<span class="html-tag">html</span>&gt;
+                </code></pre>
+                <button class="copy-button" aria-label="Copy code to clipboard">Copy</button>
+            </div>
+
+            <h3>Common Tags & Elements</h3>
+            <h4>Text Content</h4>
+            <ul class="list-disc list-inside mb-4">
+                <li><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>: Headings, defining importance hierarchy.</li>
+                <li><code>&lt;p&gt;</code>: Paragraphs.</li>
+                <li><code>&lt;a href="..."&gt;Text&lt;/a&gt;</code>: Anchor tag for hyperlinks. <code>href</code> specifies the URL.</li>
+                <li><code>&lt;strong&gt;</code> or <code>&lt;b&gt;</code>: Bold/Strong importance text. (<code>&lt;strong&gt;</code> is preferred for semantic importance).</li>
+                <li><code>&lt;em&gt;</code> or <code>&lt;i&gt;</code>: Emphasized/Italic text. (<code>&lt;em&gt;</code> is preferred for semantic emphasis).</li>
+                <li><code>&lt;span&gt;</code>: Generic inline container, useful for styling parts of text without adding semantic meaning.</li>
+                <li><code>&lt;br&gt;</code>: Line break (use sparingly; prefer CSS margins/padding for spacing).</li>
+                <li><code>&lt;hr&gt;</code>: Thematic break (horizontal rule), represents a paragraph-level thematic break.</li>
+                <li><code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code>: Unordered (bullet) lists, Ordered (numbered) lists, and List Items.</li>
+                <li><code>&lt;dl&gt;</code>, <code>&dt&gt;</code>, <code>&lt;dd&gt;</code>: Description lists, terms, and descriptions.</li>
+                <li><code>&lt;blockquote&gt;</code>: For long quotations, often indented by browsers.</li>
+                <li><code>&lt;code&gt;</code>: For inline code snippets.</li>
+                <li><code>&lt;pre&gt;</code>: For preformatted text blocks (preserves whitespace, often used with <code>&lt;code&gt;</code> inside).</li>
+            </ul>
+
+             <h4>Grouping & Structure (Semantic HTML)</h4>
+             <p class="mb-2">Semantic tags describe their content's meaning, improving accessibility (for screen readers) and SEO (for search engines).</p>
+            <ul class="list-disc list-inside mb-4">
+                <li><code>&lt;div&gt;</code>: Generic block-level container (use when no other semantic tag fits, primarily for styling/layout).</li>
+                <li><code>&lt;header&gt;</code>: Introductory content for a page or section (logos, navigation, headings, search forms).</li>
+                <li><code>&lt;nav&gt;</code>: Container for major navigation links.</li>
+                <li><code>&lt;main&gt;</code>: The main, unique content of the page (should only be one per page).</li>
+                <li><code>&lt;article&gt;</code>: Self-contained, independently distributable content (e.g., blog post, news story, forum post).</li>
+                <li><code>&lt;section&gt;</code>: A thematic grouping of content, typically with a heading. Don't use it as a generic container like <code>&lt;div&gt;</code>.</li>
+                <li><code>&lt;aside&gt;</code>: Secondary content, often tangential to the main content (e.g., sidebars, pull quotes, related links).</li>
+                <li><code>&lt;footer&gt;</code>: Footer content for a page or section (copyright, contact info, related documents links).</li>
+                <li><code>&lt;figure&gt;</code> & <code>&lt;figcaption&gt;</code>: For embedding images, diagrams, code blocks, etc., with an optional caption (<code>&lt;figcaption&gt;</code>).</li>
+                <li><code>&lt;address&gt;</code>: Contact information for the nearest ancestor <code>&lt;article&gt;</code> or <code>&lt;body&gt;</code>.</li>
+            </ul>
+
+            <h4>Media</h4>
+            <ul class="list-disc list-inside mb-4">
+                <li><code>&lt;img src="..." alt="..." width="..." height="..." loading="lazy"&gt;</code>: Embeds images. `loading="lazy"` added for performance.</li>
+                <li><code>&lt;audio controls src="..."&gt;...&lt;/audio&gt;</code></li>
+                <li><code>&lt;video controls src="..." width="..." height="..."&gt;...&lt;/video&gt;</code></li>
+                <li><code>&lt;picture&gt;</code> with <code>&lt;source&gt;</code> tags for responsive images.</li>
+            </ul>
+
+            <h4>Forms</h4>
+            <p class="mb-2">Forms allow users to input data.</p>
+            <ul class="list-disc list-inside mb-4">
+                 <li><code>&lt;form&gt;</code>, <code>&lt;label&gt;</code>, <code>&lt;input&gt;</code> (various types), <code>&lt;textarea&gt;</code>, <code>&lt;select&gt;</code>, <code>&lt;option&gt;</code>, <code>&lt;button&gt;</code>, <code>&lt;fieldset&gt;</code>, <code>&lt;legend&gt;</code>.</li>
+                 <li>Key attributes: <code>action</code>, <code>method</code>, <code>for</code>, <code>id</code>, <code>name</code>, <code>type</code>, <code>value</code>, <code>placeholder</code>, <code>required</code>.</li>
+            </ul>
+
+             <h4>Tables</h4>
+             <p class="mb-2">Used for displaying tabular data.</p>
+            <ul class="list-disc list-inside mb-4">
+                <li><code>&lt;table&gt;</code>, <code>&lt;caption&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, <code>&lt;tfoot&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;th&gt;</code> (with <code>scope</code> attribute), <code>&lt;td&gt;</code>.</li>
+                <li>Attributes: <code>colspan</code>, <code>rowspan</code>.</li>
+            </ul>
+
+            <h3>Attributes</h3>
+            <p class="mb-2">Attributes provide additional information about elements.</p>
+            <ul class="list-disc list-inside mb-4">
+                <li><strong>Global:</strong> <code>id</code>, <code>class</code>, <code>style</code>, <code>title</code>, <code>lang</code>, <code>tabindex</code>, <code>data-*</code>, <code>hidden</code>.</li>
+                <li><strong>Specific:</strong> <code>href</code> (a), <code>src</code>/<code>alt</code> (img), <code>type</code>/<code>value</code> (input), etc.</li>
+            </ul>
+
+            <h3>HTML Example</h3>
+            <div class="code-block-wrapper">
+                <pre><code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;HTML Example Page&lt;/title&gt;
+    &lt;link rel="stylesheet" href="css/style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;<span class="html-tag">header</span>&gt;
+        &lt;<span class="html-tag">h1</span> <span class="html-attr">id</span>="<span class="html-value">main-heading</span>"&gt;HTML Introduction&lt;/<span class="html-tag">h1</span>&gt;
+        &lt;<span class="html-tag">nav</span> <span class="html-attr">aria-label</span>="<span class="html-value">Main navigation</span>"&gt;
+            &lt;<span class="html-tag">ul</span>&gt;
+                &lt;<span class="html-tag">li</span>&gt;&lt;<span class="html-tag">a</span> <span class="html-attr">href</span>="<span class="html-value">#basics</span>"&gt;Basics&lt;/<span class="html-tag">a</span>&gt;&lt;/<span class="html-tag">li</span>&gt;
+                &lt;<span class="html-tag">li</span>&gt;&lt;<span class="html-tag">a</span> <span class="html-attr">href</span>="<span class="html-value">#forms</span>"&gt;Forms&lt;/<span class="html-tag">a</span>&gt;&lt;/<span class="html-tag">li</span>&gt;
+            &lt;/<span class="html-tag">ul</span>&gt;
+        &lt;/<span class="html-tag">nav</span>&gt;
+    &lt;/<span class="html-tag">header</span>&gt;
+
+    &lt;<span class="html-tag">main</span>&gt;
+        &lt;<span class="html-tag">section</span> <span class="html-attr">id</span>="<span class="html-value">basics</span>" <span class="html-attr">aria-labelledby</span>="<span class="html-value">basics-heading</span>"&gt;
+            &lt;<span class="html-tag">h2</span> <span class="html-attr">id</span>="<span class="html-value">basics-heading</span>"&gt;Basic Elements&lt;/<span class="html-tag">h2</span>&gt;
+            &lt;<span class="html-tag">p</span>&gt;This page demonstrates various HTML elements.&lt;/<span class="html-tag">p</span>&gt;
+            &lt;<span class="html-tag">figure</span>&gt;
+              &lt;<span class="html-tag">img</span> <span class="html-attr">src</span>="<span class="html-value">https://placehold.co/200x100/a0aec0/ffffff?text=HTML+Image</span>" <span class="html-attr">alt</span>="<span class="html-value">Placeholder image</span>" <span class="html-attr">width</span>="<span class="html-value">200</span>" <span class="html-attr">height</span>="<span class="html-value">100</span>" <span class="html-attr">loading</span>="<span class="html-value">lazy</span>"&gt;
+              &lt;<span class="html-tag">figcaption</span>&gt;A placeholder image.&lt;/<span class="html-tag">figcaption</span>&gt;
+            &lt;/<span class="html-tag">figure</span>&gt;
+        &lt;/<span class="html-tag">section</span>&gt;
+
+        &lt;<span class="html-tag">section</span> <span class="html-attr">id</span>="<span class="html-value">forms</span>" <span class="html-attr">aria-labelledby</span>="<span class="html-value">forms-heading</span>"&gt;
+            &lt;<span class="html-tag">h2</span> <span class="html-attr">id</span>="<span class="html-value">forms-heading</span>"&gt;Example Form&lt;/<span class="html-tag">h2</span>&gt;
+            &lt;<span class="html-tag">form</span> <span class="html-attr">action</span>="<span class="html-value">/submit-data</span>" <span class="html-attr">method</span>="<span class="html-value">post</span>"&gt;
+                &lt;<span class="html-tag">div</span>&gt;
+                  &lt;<span class="html-tag">label</span> <span class="html-attr">for</span>="<span class="html-value">username</span>"&gt;Username:&lt;/<span class="html-tag">label</span>&gt;
+                  &lt;<span class="html-tag">input</span> <span class="html-attr">type</span>="<span class="html-value">text</span>" <span class="html-attr">id</span>="<span class="html-value">username</span>" <span class="html-attr">name</span>="<span class="html-value">user_name</span>" <span class="html-attr">required</span>&gt;
+                &lt;/<span class="html-tag">div</span>&gt;
+                &lt;<span class="html-tag">button</span> <span class="html-attr">type</span>="<span class="html-value">submit</span>"&gt;Submit&lt;/<span class="html-tag">button</span>&gt;
+            &lt;/<span class="html-tag">form</span>&gt;
+        &lt;/<span class="html-tag">section</span>&gt;
+    &lt;/<span class="html-tag">main</span>&gt;
+
+    &lt;<span class="html-tag">footer</span>&gt;
+        &lt;<span class="html-tag">p</span>&gt;&copy; 2025 Discite Learning&lt;/<span class="html-tag">p</span>&gt;
+    &lt;/<span class="html-tag">footer</span>&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                </code></pre>
+                 <button class="copy-button" aria-label="Copy code to clipboard">Copy</button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-container">
+            <p>&copy; 2025 Discite. Keep Building!</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+</body>
+</html>
