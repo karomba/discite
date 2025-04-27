@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discite: JavaScript Fundamentals</title>
+    <title>Discite: JavaScript Fundamentals ✨🧠</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -28,93 +31,90 @@
 
         <section id="javascript" class="content-section">
              <h2 class="text-3xl md:text-4xl font-bold section-header">
-                JavaScript: Making Web Pages Interactive
+                JavaScript: Making Web Pages Interactive ✨🧠
             </h2>
-            <p class="mb-4">JavaScript (JS) brings web pages to life by enabling dynamic content updates, user interaction handling, animations, data fetching, and much more.</p>
+            <p class="mb-4">JavaScript (JS) is the programming language that lets you add dynamic behavior, handle user actions, fetch data, and basically make your website *do* things.</p>
 
-            <h3>Including JavaScript</h3>
+            <h3>Including JavaScript 🔌</h3>
              <ul class="list-disc list-inside mb-4">
-                 <li><strong>External File (Recommended):</strong> <code>&lt;script src="js/main.js" defer&gt;&lt;/script&gt;</code> usually before <code>&lt;/body&gt;</code>.</li>
-                 <li><strong>Internal Script:</strong> <code>&lt;script&gt;...&lt;/script&gt;</code> tags.</li>
-                 <li><code>defer</code> attribute downloads script in parallel, executes after HTML parsing.</li>
-                 <li><code>async</code> attribute downloads in parallel, executes whenever ready (order not guaranteed).</li>
+                 <li>Best way: External <code>.js</code> file linked with <code>&lt;script src="script.js" defer&gt;&lt;/script&gt;</code> before <code>&lt;/body&gt;</code>.</li>
+                 <li>Okay way: Internal <code>&lt;script&gt;...&lt;/script&gt;</code> tags.</li>
              </ul>
 
-            <h3>Core Concepts</h3>
-            <h4>Variables & Scope</h4>
+            <h3>Core Concepts 💡</h3>
+             <h4>Variables & Scope 📦</h4>
              <ul class="list-disc list-inside mb-4">
-                 <li>Declaration: <code>let</code> (reassignable, block-scoped), <code>const</code> (constant binding, block-scoped), <code>var</code> (avoid, function-scoped).</li>
-                 <li>Scope: Global, Module, Function, Block.</li>
-                 <li>Hoisting: Declarations moved up, but <code>let</code>/<code>const</code> have Temporal Dead Zone.</li>
+                 <li><code>let name = "Val";</code> (Can change later).</li>
+                 <li><code>const score = 100;</code> (Cannot be reassigned - use this often!).</li>
+                 <li>Scope = Where variables live (Global, Function, Block). <code>let</code>/<code>const</code> are block-scoped.</li>
              </ul>
 
-            <h4>Data Types</h4>
+            <h4>Data Types 🧱</h4>
              <ul class="list-disc list-inside mb-4">
-                 <li>Primitives: <code>string</code>, <code>number</code>, <code>boolean</code>, <code>null</code>, <code>undefined</code>, <code>symbol</code>, <code>bigint</code>.</li>
-                 <li>Object: Collections (plain objects, arrays, functions, dates, etc.).</li>
+                 <li>Primitives: <code>string</code> ("text"), <code>number</code> (123, 3.14), <code>boolean</code> (true/false ✅❌), <code>null</code>, <code>undefined</code>.</li>
+                 <li>Object: Everything else (arrays <code>[]</code>, objects <code>{}</code>, functions).</li>
              </ul>
 
-            <h4>Operators</h4>
+            <h4>Operators 🧮</h4>
              <ul class="list-disc list-inside mb-4">
-                 <li>Arithmetic (<code>+</code>,<code>-</code>,<code>*</code>,<code>/</code>,<code>%</code>,<code>**</code>), Assignment (<code>=</code>,<code>+=</code>), Comparison (<code>===</code>,<code>!==</code>,<code>&gt;</code>), Logical (<code>&&</code>,<code>||</code>,<code>!</code>), Ternary (<code>? :</code>), Type (<code>typeof</code>), Spread/Rest (<code>...</code>), Optional Chaining (<code>?.</code>), Nullish Coalescing (<code>??</code>).</li>
+                 <li>Math: <code>+ - * / %</code></li>
+                 <li>Comparison: <code>===</code> (strict equals - use this!), <code>!==</code>, <code>&gt;</code>, <code>&lt;</code></li>
+                 <li>Logical: <code>&&</code> (AND), <code>||</code> (OR), <code>!</code> (NOT)</li>
              </ul>
 
-            <h4>Control Flow</h4>
+            <h4>Control Flow 🚦</h4>
              <ul class="list-disc list-inside mb-4">
                 <li>Conditionals: <code>if/else if/else</code>, <code>switch</code>.</li>
-                <li>Loops: <code>for</code>, <code>for...of</code> (for iterables), <code>for...in</code> (for object keys), <code>while</code>, <code>do...while</code>.</li>
-                <li>Error Handling: <code>try...catch...finally</code>.</li>
+                <li>Loops: <code>for</code>, <code>while</code>, <code>for...of</code> (great for arrays!).</li>
+                <li>Error Handling: <code>try...catch</code>.</li>
              </ul>
 
-            <h4>Functions</h4>
+            <h4>Functions ⚙️</h4>
             <p class="mb-2">Reusable code blocks.</p>
              <ul class="list-disc list-inside mb-4">
-                 <li>Declaration (<code>function name(){}</code>), Expression (<code>const n = function(){}</code>), Arrow (<code>const n = ()=>{}</code>).</li>
-                 <li>Arrow functions have lexical <code>this</code>.</li>
-                 <li>Parameters (definition), Arguments (call). Default & Rest parameters.</li>
-                 <li><code>return</code> value.</li>
+                 <li>Define with <code>function name() {}</code> or <code>const name = () => {}</code> (Arrow function).</li>
+                 <li>Arrow functions are often shorter and handle <code>this</code> differently.</li>
+                 <li>Can take inputs (parameters) and give back outputs (<code>return</code> value).</li>
              </ul>
 
-            <h4>Arrays</h4>
-            <p class="mb-2">Ordered lists.</p>
+            <h4>Arrays 📋</h4>
+            <p class="mb-2">Ordered lists: <code>[ "🍎", "🍌", "🍒" ]</code></p>
              <ul class="list-disc list-inside mb-4">
-                 <li>Creation: <code>[]</code>. Access: <code>arr[i]</code>. Length: <code>arr.length</code>.</li>
-                 <li>Methods: <code>forEach</code>, <code>map</code>, <code>filter</code>, <code>reduce</code>, <code>find</code>, <code>push/pop</code>, <code>shift/unshift</code>, <code>slice</code>, <code>splice</code>, <code>join</code>, <code>includes</code>.</li>
+                 <li>Access items by index: <code>myArray[0]</code> (first item).</li>
+                 <li>Useful methods: <code>.forEach()</code>, <code>.map()</code>, <code>.filter()</code>, <code>.find()</code>, <code>.push()</code> (add to end), <code>.pop()</code> (remove from end).</li>
              </ul>
 
-            <h4>Objects</h4>
-            <p class="mb-2">Key-value pairs.</p>
+            <h4>Objects 🔑</h4>
+            <p class="mb-2">Key-value pairs: <code>{ name: "Discite", type: "Website" }</code></p>
              <ul class="list-disc list-inside mb-4">
-                <li>Creation: <code>{}</code>. Access: <code>obj.key</code> or <code>obj['key']</code>.</li>
-                <li>Methods: Functions as properties. <code>this</code> keyword context.</li>
-                <li><code>Object.keys/values/entries</code>. Spread syntax <code>{...obj}</code>.</li>
+                <li>Access values: <code>myObject.name</code> or <code>myObject['type']</code>.</li>
+                <li>Store data and related functions (methods).</li>
              </ul>
 
-            <h4>DOM Manipulation</h4>
-            <p class="mb-2">Interacting with HTML structure.</p>
+            <h4>DOM Manipulation 🌳➡️🔧</h4>
+            <p class="mb-2">Changing the HTML page with JS.</p>
              <ul class="list-disc list-inside mb-4">
-                 <li>Selecting: <code>getElementById</code>, <code>querySelector</code>, <code>querySelectorAll</code>.</li>
-                 <li>Traversing: <code>.parentElement</code>, <code>.children</code>, <code>.nextElementSibling</code>.</li>
-                 <li>Changing Content: <code>.textContent</code>, <code>.innerHTML</code>.</li>
-                 <li>Changing Attributes: <code>.setAttribute()</code>, <code>.getAttribute()</code>, direct properties (<code>img.src</code>).</li>
-                 <li>Changing Styles: <code>.style</code> (inline), <code>.classList</code> (add/remove/toggle - preferred).</li>
-                 <li>Creating/Adding/Removing: <code>createElement</code>, <code>append/prepend</code>, <code>remove</code>.</li>
+                 <li>Select elements: <code>document.querySelector('.my-class')</code>, <code>document.getElementById('my-id')</code>.</li>
+                 <li>Change text: <code>element.textContent = "New text!"</code>.</li>
+                 <li>Change styles: <code>element.classList.add('active')</code>, <code>element.style.color = 'red'</code>.</li>
+                 <li>Create/Add: <code>document.createElement('div')</code>, <code>parentElement.append(newElement)</code>.</li>
+                 <li>Remove: <code>element.remove()</code>.</li>
              </ul>
 
-            <h4>Events & Event Listeners</h4>
-            <p class="mb-2">Responding to user actions.</p>
+            <h4>Events & Event Listeners 🖱️⌨️</h4>
+            <p class="mb-2">Reacting to user actions.</p>
              <ul class="list-disc list-inside mb-4">
-                 <li>Attaching: <code>element.addEventListener('eventName', handlerFn)</code>.</li>
-                 <li>Common Events: <code>click</code>, <code>keydown</code>, <code>submit</code>, <code>load</code>, <code>DOMContentLoaded</code>, <code>change</code>, <code>input</code>, <code>mouseover</code>.</li>
-                 <li>Event Object: Contains details (<code>event.target</code>), methods (<code>event.preventDefault()</code>).</li>
+                 <li>Listen for events: <code>button.addEventListener('click', handleClickFn);</code></li>
+                 <li>Common events: <code>click</code>, <code>keydown</code> (key press), <code>submit</code> (form), <code>mouseover</code>.</li>
+                 <li>Handler function gets an `event` object with info (like <code>event.target</code>).</li>
              </ul>
 
             <div class="interactive-demo">
-                <h4>Interactive Demo</h4>
+                <h4>Interactive Demo 👇 Try it!</h4>
                 <p>Enter some text and click the button or press Enter.</p>
                 <label for="demo-input" class="block mb-1 text-sm font-medium">Your Text:</label>
-                <input type="text" id="demo-input" class="border p-1 rounded w-full md:w-1/2 mb-2" placeholder="Type here...">
-                <button id="demo-action-button">Update Message</button>
+                <input type="text" id="demo-input" class="border p-1 rounded w-full md:w-1/2 mb-2" placeholder="Type something cool...">
+                <button id="demo-action-button">Update Message ✨</button>
                 <div id="demo-output" class="output-area">Output will appear here...</div>
             </div>
              <div class="code-block-wrapper">
@@ -126,50 +126,60 @@
 
 <span class="js-keyword">function</span> <span class="js-function">updateOutput</span>() {
   <span class="js-keyword">const</span> <span class="js-variable">text</span> = <span class="js-variable">input</span>.<span class="js-variable">value</span>.<span class="js-method">trim</span>();
-  <span class="js-variable">output</span>.<span class="js-variable">textContent</span> = <span class="js-variable">text</span> ? <span class="js-string">`You entered: "${<span class="js-variable">text</span>}"`</span> : <span class="js-string">'Please enter text!'</span>;
+  <span class="js-comment">// Use a ternary for cleaner conditional text 😎</span>
+  <span class="js-variable">output</span>.<span class="js-variable">textContent</span> = <span class="js-variable">text</span> ? <span class="js-string">`You entered: "${<span class="js-variable">text</span>}"`</span> : <span class="js-string">'Bruh, enter something! 🤷'</span>;
+  <span class="js-variable">output</span>.<span class="js-variable">style</span>.<span class="js-variable">color</span> = <span class="js-variable">text</span> ? <span class="js-string">'#1e3a8a'</span> : <span class="js-string">'#b91c1c'</span>;
   <span class="js-variable">input</span>.<span class="js-variable">value</span> = <span class="js-string">''</span>;
   <span class="js-variable">input</span>.<span class="js-method">focus</span>();
 }
 
+<span class="js-comment">// Add listeners only if elements exist</span>
 <span class="js-keyword">if</span> (<span class="js-variable">button</span>) <span class="js-variable">button</span>.<span class="js-method">addEventListener</span>(<span class="js-string">'click'</span>, <span class="js-variable">updateOutput</span>);
 <span class="js-keyword">if</span> (<span class="js-variable">input</span>) <span class="js-variable">input</span>.<span class="js-method">addEventListener</span>(<span class="js-string">'keydown'</span>, (<span class="js-parameter">e</span>) <span class="js-operator">=></span> {
-    <span class="js-keyword">if</span> (<span class="js-variable">e</span>.<span class="js-variable">key</span> === <span class="js-string">'Enter'</span>) <span class="js-function">updateOutput</span>();
+    <span class="js-keyword">if</span> (<span class="js-variable">e</span>.<span class="js-variable">key</span> === <span class="js-string">'Enter'</span>) {
+        <span class="js-variable">e</span>.<span class="js-method">preventDefault</span>(); <span class="js-comment">// Stop default form submit if any</span>
+        <span class="js-function">updateOutput</span>();
+    }
 });
                 </code></pre>
                 <button class="copy-button" aria-label="Copy code to clipboard">Copy</button>
             </div>
 
-            <h4>Asynchronous JavaScript</h4>
-            <p class="mb-2">Handling operations that take time.</p>
+            <h4>Asynchronous JavaScript ⏳</h4>
+            <p class="mb-2">Handling things that take time (like fetching data from the internet 🌐).</p>
              <ul class="list-disc list-inside mb-4">
-                 <li>Callbacks, Promises (<code>.then/.catch</code>), <code>async/await</code> (modern standard).</li>
-                 <li>Fetch API for network requests.</li>
+                 <li>Callbacks (old way), Promises (better), <code>async/await</code> (modern & clean ✨).</li>
+                 <li>Fetch API: The standard way to make network requests.</li>
              </ul>
              <div class="code-block-wrapper">
                 <pre><code class="language-javascript">
 <span class="js-comment">// Example async/await with Fetch</span>
-<span class="js-keyword">async</span> <span class="js-keyword">function</span> <span class="js-function">getUser</span>(<span class="js-parameter">id</span>) {
+<span class="js-keyword">async</span> <span class="js-keyword">function</span> <span class="js-function">getUserData</span>(<span class="js-parameter">userId</span>) {
+  <span class="js-keyword">const</span> <span class="js-variable">apiUrl</span> = <span class="js-string">`https://jsonplaceholder.typicode.com/users/${<span class="js-variable">userId</span>}`</span>;
+  <span class="js-variable">console</span>.<span class="js-method">log</span>(<span class="js-string">`Fetching user ${<span class="js-variable">userId</span>}...`</span>);
   <span class="js-keyword">try</span> {
-    <span class="js-keyword">const</span> <span class="js-variable">response</span> = <span class="js-keyword">await</span> <span class="js-method">fetch</span>(<span class="js-string">`https://jsonplaceholder.typicode.com/users/${<span class="js-variable">id</span>}`</span>);
-    <span class="js-keyword">if</span> (<span class="js-operator">!</span><span class="js-variable">response</span>.<span class="js-variable">ok</span>) <span class="js-keyword">throw</span> <span class="js-keyword">new</span> <span class="js-method">Error</span>(<span class="js-variable">response</span>.<span class="js-variable">statusText</span>);
-    <span class="js-keyword">const</span> <span class="js-variable">user</span> = <span class="js-keyword">await</span> <span class="js-variable">response</span>.<span class="js-method">json</span>();
-    <span class="js-variable">console</span>.<span class="js-method">log</span>(<span class="js-variable">user</span>);
-  } <span class="js-keyword">catch</span> (<span class="js-variable">error</span>) {
-    <span class="js-variable">console</span>.<span class="js-method">error</span>(<span class="js-string">'Fetch failed:'</span>, <span class="js-variable">error</span>);
+    <span class="js-keyword">const</span> <span class="js-variable">response</span> = <span class="js-keyword">await</span> <span class="js-method">fetch</span>(<span class="js-variable">apiUrl</span>);
+    <span class="js-keyword">if</span> (<span class="js-operator">!</span><span class="js-variable">response</span>.<span class="js-variable">ok</span>) { <span class="js-comment">// Check for HTTP errors (like 404)</span>
+      <span class="js-keyword">throw</span> <span class="js-keyword">new</span> <span class="js-method">Error</span>(<span class="js-string">`HTTP Error: ${<span class="js-variable">response</span>.<span class="js-variable">status</span>}`</span>);
+    }
+    <span class="js-keyword">const</span> <span class="js-variable">user</span> = <span class="js-keyword">await</span> <span class="js-variable">response</span>.<span class="js-method">json</span>(); <span class="js-comment">// Get the data</span>
+    <span class="js-variable">console</span>.<span class="js-method">log</span>(<span class="js-string">'Got user:'</span>, <span class="js-variable">user</span>.<span class="js-variable">name</span>, '🎉');
+  } <span class="js-keyword">catch</span> (<span class="js-variable">error</span>) { <span class="js-comment">// Catch fetch errors OR HTTP errors</span>
+    <span class="js-variable">console</span>.<span class="js-method">error</span>(<span class="js-string">'Failed to fetch user:'</span>, <span class="js-variable">error</span>);
   }
 }
-<span class="js-comment">// getUser(1);</span>
+<span class="js-comment">// Try calling it from the browser console: getUserData(1)</span>
                 </code></pre>
                 <button class="copy-button" aria-label="Copy code to clipboard">Copy</button>
             </div>
-            <div id="user-output" class="output-area bg-gray-100 mt-4">User data will load here if fetch is called...</div>
+            <div id="user-output" class="output-area bg-gray-100 mt-4">User data fetch results appear in console...</div>
         </section>
 
     </main>
 
     <footer class="main-footer">
         <div class="container footer-container">
-            <p>&copy; 2025 Discite. Keep Building!</p>
+            <p>&copy; 2025 Discite. Keep Building! 🛠️</p>
         </div>
     </footer>
 
