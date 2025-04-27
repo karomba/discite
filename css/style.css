@@ -38,16 +38,19 @@ body {
 
 .header-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column; /* Default for mobile */
+    align-items: center; /* Center items horizontally on mobile */
     justify-content: space-between;
 }
 
 .logo {
     font-size: 1.875rem; /* text-3xl */
     font-weight: 700; /* font-bold */
-    margin-bottom: 0.5rem; /* mb-2 */
     color: #ffffff; /* White */
+    /* === UPDATED: Remove default browser margins === */
+    margin: 0;
+    /* === ADDED: Add some bottom margin ONLY for mobile view === */
+    margin-bottom: 0.5rem;
 }
 
 .main-nav {
@@ -65,6 +68,8 @@ body {
     text-decoration: none;
     font-size: 0.875rem; /* text-sm */
     font-weight: 500; /* font-medium */
+    /* === ADDED: Ensure links align well in flex === */
+    display: inline-block; /* Helps with consistent height/padding */
 }
 
 .nav-link:hover {
@@ -392,9 +397,11 @@ img {
 @media (min-width: 768px) { /* Medium screens and up */
     .header-container {
         flex-direction: row;
+        /* === ADDED: Ensure vertical centering on larger screens === */
+        align-items: center;
     }
     .logo {
-        margin-bottom: 0;
+        margin-bottom: 0; /* Remove bottom margin added for mobile */
     }
     .main-nav {
         justify-content: flex-end; /* Align nav links to the right */
