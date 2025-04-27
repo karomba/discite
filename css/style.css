@@ -27,7 +27,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 50;
-    padding: 0.75rem 0; /* Adjusted padding slightly */
+    padding: 0.5rem 0; /* Slightly reduced padding for potentially taller logo */
     /* Glassmorphism */
     background-color: rgba(26, 32, 44, 0.3); /* Darker semi-transparent */
     backdrop-filter: blur(10px);
@@ -43,24 +43,24 @@ body {
     justify-content: space-between;
 }
 
-/* Styles for the SVG logo container */
+/* === UPDATED: Styles for the new SVG logo container === */
 .logo {
-    /* Remove text-specific styles if they existed */
     margin: 0;
     margin-bottom: 0.5rem; /* Spacing on mobile */
-    line-height: 1; /* Prevent extra space from line-height */
-    display: inline-block; /* Ensure it takes up only needed space */
+    line-height: 1; /* Prevent extra space */
+    display: inline-block; /* Fit content */
 }
 /* Target the SVG directly */
 .logo svg {
     display: block; /* Remove potential extra space below SVG */
-    width: 150px; /* Control size via CSS if needed, or use SVG attributes */
-    height: auto; /* Maintain aspect ratio */
+    width: auto; /* Let SVG intrinsic size or viewBox work */
+    height: 40px; /* Control height via CSS - ADJUST AS NEEDED */
+    max-width: 100%; /* Ensure it doesn't overflow container */
 }
 /* Ensure the link wrapping the logo behaves correctly */
 .logo a {
-    display: inline-block; /* Or block if needed */
-    line-height: 1; /* Match logo line-height */
+    display: inline-block;
+    line-height: 1;
 }
 
 
