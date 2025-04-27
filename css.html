@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discite: CSS Fundamentals</title>
+    <title>Discite: CSS Fundamentals 🎨</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -28,53 +31,60 @@
 
         <section id="css" class="content-section">
              <h2 class="text-3xl md:text-4xl font-bold section-header">
-                CSS: Styling the Web
+                CSS: Styling the Web 🎨
             </h2>
-            <p class="mb-4">CSS (Cascading Style Sheets) controls the visual presentation, layout, and appearance of HTML elements. It works by applying style rules (declarations) to selected elements.</p>
+            <p class="mb-4">CSS (Cascading Style Sheets) is how you make your HTML look good. It controls colors, fonts, layout, spacing – basically the whole vibe ✨.</p>
 
-            <h3>Including CSS</h3>
-            <p class="mb-2">There are three ways to add CSS:</p>
+            <h3>Including CSS 🔌</h3>
+            <p class="mb-2">Three ways to add styles:</p>
             <ul class="list-decimal list-inside mb-4">
-                <li><strong>External Stylesheet (Recommended):</strong> Link a <code>.css</code> file in <code>&lt;head&gt;</code>.</li>
-                <li><strong>Internal Stylesheet:</strong> Use <code>&lt;style&gt;</code> tags in <code>&lt;head&gt;</code>.</li>
-                <li><strong>Inline Styles:</strong> Use the <code>style</code> attribute on elements (least recommended).</li>
+                <li><strong>External Stylesheet (Best! 👍):</strong> Link a <code>.css</code> file in <code>&lt;head&gt;</code>. Keeps things tidy.</li>
+                <li><strong>Internal Stylesheet:</strong> Use <code>&lt;style&gt;</code> tags in <code>&lt;head&gt;</code>. Okay for small stuff.</li>
+                <li><strong>Inline Styles:</strong> <code>style="..."</code> attribute on elements (Avoid if possible 🙅‍♀️).</li>
             </ul>
 
-            <h3>CSS Rule Structure</h3>
+            <h3>CSS Rule Structure 📜</h3>
+            <p class="mb-2">It's like giving instructions:</p>
              <div class="code-block-wrapper">
                 <pre><code class="language-css">
-<span class="css-comment">/* Comment */</span>
-<span class="css-selector">selector</span> {
-  <span class="css-property">property</span>: <span class="css-value">value</span>;
+<span class="css-comment">/* Target something { Tell it what to do; } */</span>
+<span class="css-selector">p</span> { <span class="css-comment">/* Select all paragraphs */</span>
+  <span class="css-property">color</span>: <span class="css-value">purple</span>; <span class="css-comment">/* Make text purple */</span>
+  <span class="css-property">font-size</span>: <span class="css-value">1.1<span class="css-unit">rem</span></span>; <span class="css-comment">/* Make font slightly bigger */</span>
 }
                 </code></pre>
                 <button class="copy-button" aria-label="Copy code to clipboard">Copy</button>
             </div>
 
-            <h3>Selectors</h3>
-            <p class="mb-2">Target HTML elements.</p>
+            <h3>Selectors 👉</h3>
+            <p class="mb-2">How you target HTML elements:</p>
              <ul class="list-disc list-inside mb-4">
-                <li>Type (<code>h1</code>), Class (<code>.my-class</code>), ID (<code>#my-id</code>)</li>
-                <li>Attribute (<code>[type="text"]</code>)</li>
-                <li>Pseudo-classes (<code>:hover</code>, <code>:nth-child()</code>)</li>
-                <li>Pseudo-elements (<code>::before</code>, <code>::first-line</code>)</li>
-                <li>Combinators (descendant , child <code>&gt;</code>, adjacent <code>+</code>, general sibling <code>~</code>)</li>
-                <li>Grouping (<code>h1, h2 { ... }</code>)</li>
+                <li>Type (<code>h1</code>), Class (<code>.cool-button</code>), ID (<code>#main-logo</code> - unique!)</li>
+                <li>Attribute (<code>input[type="checkbox"]</code>)</li>
+                <li>Pseudo-classes (<code>:hover</code>, <code>:focus</code>, <code>:nth-child(2)</code> - the second kid)</li>
+                <li>Pseudo-elements (<code>::before</code>, <code>::after</code> - add little extra bits)</li>
+                <li>Combinators (<code>article p</code> - paragraphs inside articles)</li>
             </ul>
 
-            <h3>The Cascade, Specificity, and Inheritance</h3>
+            <h3>The Cascade, Specificity, and Inheritance 🤔</h3>
              <ul class="list-disc list-inside mb-4">
-                <li><strong>Cascade:</strong> Order of rule application (Origin > Specificity > Source Order).</li>
-                <li><strong>Specificity:</strong> How specific a selector is (Inline > ID > Class/Attribute/Pseudo-class > Type/Pseudo-element).</li>
-                <li><strong>Inheritance:</strong> Some properties (like <code>color</code>, <code>font-family</code>) are passed down from parent to child.</li>
-                <li><strong><code>!important</code>:</strong> Overrides specificity (use sparingly).</li>
+                <li><strong>Cascade:</strong> Rules flow down, later rules or more specific rules win.</li>
+                <li><strong>Specificity:</strong> How specific a selector is (ID > Class > Type). More specific = more power 💪.</li>
+                <li><strong>Inheritance:</strong> Some styles (like font, color) flow down to children automatically.</li>
+                <li><strong><code>!important</code>:</strong> Overrides almost everything (use carefully! 🚨).</li>
             </ul>
 
-            <h3>The Box Model</h3>
-            <p class="mb-2">Elements are boxes with Content, Padding, Border, Margin.</p>
-            <img src="https://placehold.co/450x200/e0f2fe/0c4a6e?text=Margin+|+Border+|+Padding+|+Content" alt="Diagram of the CSS Box Model" class="box-model-diagram" loading="lazy">
-            <h4 class="mt-4"><code>box-sizing</code> Property</h4>
-            <p class="mb-2"><code>border-box</code> is recommended (width/height include padding and border).</p>
+            <h3>The Box Model 📦</h3>
+            <p class="mb-2">Every element is a box! It has:</p>
+            <img src="https://placehold.co/450x200/c4b5fd/1e1b4b?text=Margin+|+Border+|+Padding+|+Content" alt="Diagram of the CSS Box Model" class="box-model-diagram" loading="lazy">
+            <ul class="list-disc list-inside mb-4">
+               <li>Content: The actual stuff.</li>
+               <li>Padding: Space inside the border.</li>
+               <li>Border: The line around the padding.</li>
+               <li>Margin: Space outside the border (pushes other boxes away).</li>
+            </ul>
+            <h4 class="mt-4"><code>box-sizing: border-box;</code></h4>
+            <p class="mb-2">Pro tip: Use this so width/height includes padding & border. Makes life easier!</p>
              <div class="code-block-wrapper">
                 <pre><code class="language-css">
 *, *::before, *::after { box-sizing: border-box; }
@@ -82,45 +92,46 @@
                 <button class="copy-button" aria-label="Copy code to clipboard">Copy</button>
             </div>
 
-            <h3>Layout: Flexbox and Grid</h3>
-            <h4>Flexbox</h4>
-            <p class="mb-2">One-dimensional layout (rows or columns).</p>
+            <h3>Layout: Flexbox and Grid 📐</h3>
+            <h4>Flexbox 💪</h4>
+            <p class="mb-2">Great for arranging items in a line (row or column).</p>
              <ul class="list-disc list-inside mb-4">
-                <li>Container: <code>display: flex;</code>, <code>justify-content</code>, <code>align-items</code>, <code>flex-direction</code>, <code>flex-wrap</code>, <code>gap</code>.</li>
-                <li>Items: <code>flex-grow</code>, <code>flex-shrink</code>, <code>flex-basis</code>, <code>order</code>, <code>align-self</code>.</li>
+                <li>Use <code>display: flex;</code> on the container.</li>
+                <li>Align items with <code>justify-content</code> and <code>align-items</code>.</li>
             </ul>
-             <h4>CSS Grid</h4>
-            <p class="mb-2">Two-dimensional layout (rows and columns).</p>
+             <h4>CSS Grid ▦</h4>
+            <p class="mb-2">Awesome for 2D layouts (rows AND columns).</p>
              <ul class="list-disc list-inside mb-4">
-                 <li>Container: <code>display: grid;</code>, <code>grid-template-columns</code>, <code>grid-template-rows</code>, <code>gap</code>.</li>
-                 <li>Items: <code>grid-column</code>, <code>grid-row</code>.</li>
-            </ul>
-
-            <h3>Units</h3>
-             <ul class="list-disc list-inside mb-4">
-                <li>Absolute: <code>px</code>.</li>
-                <li>Relative: <code>%</code>, <code>em</code>, <code>rem</code> (recommended for fonts/spacing), <code>vw</code>, <code>vh</code>, <code>fr</code> (Grid).</li>
+                 <li>Use <code>display: grid;</code> on the container.</li>
+                 <li>Define columns/rows with <code>grid-template-columns/rows</code>.</li>
             </ul>
 
-            <h3>Common Properties</h3>
+            <h3>Units 📏</h3>
              <ul class="list-disc list-inside mb-4">
-                <li>Typography: <code>font-*</code>, <code>line-height</code>, <code>text-*</code>, <code>color</code>.</li>
-                <li>Backgrounds: <code>background-*</code>.</li>
-                <li>Borders: <code>border</code>, <code>border-radius</code>.</li>
-                <li>Sizing/Spacing: <code>width</code>, <code>height</code>, <code>padding</code>, <code>margin</code>.</li>
-                <li>Layout: <code>display</code>, <code>position</code> (static, relative, absolute, fixed, sticky), <code>top/right/bottom/left</code>, <code>z-index</code>, <code>overflow</code>.</li>
-                <li>Effects: <code>opacity</code>, <code>filter</code>, <code>backdrop-filter</code>, <code>transition</code>, <code>animation</code>.</li>
+                <li>Absolute: <code>px</code> (pixels).</li>
+                <li>Relative: <code>%</code>, <code>em</code>, <code>rem</code> (use `rem` for fonts!), <code>vw</code>/<code>vh</code> (viewport size).</li>
             </ul>
 
-            <h3>Responsive Design & Media Queries</h3>
-            <p class="mb-2">Adapt layout to different screen sizes using <code>@media</code> rules.</p>
+            <h3>Common Properties (Just a few!) 👇</h3>
+             <ul class="list-disc list-inside mb-4">
+                <li>Text: <code>font-family</code>, <code>font-size</code>, <code>color</code>, <code>text-align</code>.</li>
+                <li>Backgrounds: <code>background-color</code>, <code>background-image</code>.</li>
+                <li>Spacing: <code>padding</code>, <code>margin</code>.</li>
+                <li>Size: <code>width</code>, <code>height</code>.</li>
+                <li>Borders: <code>border</code>, <code>border-radius</code> (for rounded corners!).</li>
+                <li>Layout: <code>display</code> (flex, grid, block, inline), <code>position</code>.</li>
+            </ul>
+
+            <h3>Responsive Design & Media Queries 📱💻</h3>
+            <p class="mb-2">Make your site look good everywhere! Use <code>@media</code> to apply styles based on screen size.</p>
             <div class="code-block-wrapper">
                 <pre><code class="language-css">
-<span class="css-comment">/* Mobile First */</span>
-<span class="css-selector">.container</span> { <span class="css-property">width</span>: <span class="css-value">100%</span>; }
+<span class="css-comment">/* Default (Mobile) */</span>
+<span class="css-selector">.button</span> { <span class="css-property">width</span>: <span class="css-value">100%</span>; }
 
-<span class="css-selector">@media</span> (<span class="css-property">min-width</span>: <span class="css-value">768<span class="css-unit">px</span></span>) { <span class="css-comment">/* Tablet and up */</span>
-  <span class="css-selector">.container</span> { <span class="css-property">width</span>: <span class="css-value">90%</span>; <span class="css-property">max-width</span>: <span class="css-value">960<span class="css-unit">px</span></span>; }
+<span class="css-comment">/* Tablet size and up */</span>
+<span class="css-selector">@media</span> (<span class="css-property">min-width</span>: <span class="css-value">768<span class="css-unit">px</span></span>) {
+  <span class="css-selector">.button</span> { <span class="css-property">width</span>: <span class="css-value">auto</span>; } <span class="css-comment">/* Becomes normal size */</span>
 }
                 </code></pre>
                 <button class="copy-button" aria-label="Copy code to clipboard">Copy</button>
@@ -131,7 +142,7 @@
 
     <footer class="main-footer">
         <div class="container footer-container">
-            <p>&copy; 2025 Discite. Keep Building!</p>
+            <p>&copy; 2025 Discite. Keep Building! 🛠️</p>
         </div>
     </footer>
 
