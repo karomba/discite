@@ -28,53 +28,73 @@
     </header>
 
     <main class="container main-content">
-
-        <section id="tools" class="content-section">
-            <h2 class="text-3xl md:text-4xl font-bold section-header">
+        <section id="tools" class="content-section" aria-labelledby="tools-main-heading">
+            <h2 id="tools-main-heading" class="text-3xl md:text-4xl font-bold section-header">
                 Tools & Next Steps 🛠️➡️
             </h2>
-            <p class="mb-4">You've got the basics down! 🎉 Now what? Time to level up your skills and workflow.</p>
+            <p class="mb-4">You've got the basics down! 🎉 Now what? Time to level up your skills and workflow by exploring essential tools and diving into more advanced topics.</p>
 
             <h3>Practice & Project Building 🧑‍💻</h3>
             <ul class="list-disc list-inside mb-4">
-                <li><strong>Build Stuff!:</strong> Seriously, this is key. Start small (portfolio page?), then get ambitious (weather app? 🌦️). Just build!</li>
-                <li><strong>Code Challenges:</strong> Sites like Codewars sharpen your logic skills 🧠.</li>
-                <li><strong>Open Source:</strong> Peek at how others code, maybe even contribute!</li>
-                <li><strong>Dev Tools are Your BFF:</strong> Learn your browser's F12 tools (Inspector, Console, Network). They're essential for debugging 🐞.</li>
+                <li><strong>Build Stuff!:</strong> The absolute best way to learn. Start simple, then increase complexity.
+                    <ul>
+                        <li>Beginner Ideas: Personal Portfolio, Tribute Page, Recipe Card, Simple Landing Page.</li>
+                        <li>Intermediate Ideas: To-Do List App (with JS), Weather App (using <a href="https://openweathermap.org/api" target="_blank" rel="noopener noreferrer" class="text-link">APIs</a>), Simple Calculator, Blog Layout.</li>
+                        <li>Project Idea Sites: <a href="https://www.frontendmentor.io/" target="_blank" rel="noopener noreferrer" class="text-link">Frontend Mentor</a>, <a href="https://devchallenges.io/" target="_blank" rel="noopener noreferrer" class="text-link">DevChallenges</a>.</li>
+                    </ul>
+                </li>
+                <li><strong>Code Challenges:</strong> Sharpen problem-solving skills.
+                    <ul>
+                        <li><a href="https://www.codewars.com/" target="_blank" rel="noopener noreferrer" class="text-link">Codewars</a></li>
+                        <li><a href="https://leetcode.com/" target="_blank" rel="noopener noreferrer" class="text-link">LeetCode</a> (More algorithm-focused)</li>
+                        <li><a href="https://www.hackerrank.com/" target="_blank" rel="noopener noreferrer" class="text-link">HackerRank</a></li>
+                    </ul>
+                </li>
+                <li><strong>Open Source:</strong> Learn collaboration and read real-world code. Look for "good first issue" labels on GitHub.</li>
+                <li><strong>Master Browser Dev Tools:</strong> Essential for debugging (F12). Explore the Elements/Inspector, Console, Network, Application, Performance, and Lighthouse tabs.</li>
             </ul>
 
-            <h3>Essential Dev Tools 🔧</h3>
+            <h3>Essential Development Tools 🔧</h3>
              <ul class="list-disc list-inside mb-4">
-                 <li><strong>Code Editor:</strong> VS Code is the standard (free, tons of extensions).</li>
-                 <li><strong>Version Control:</strong>
+                 <li><strong>Code Editor:</strong>
                     <ul>
-                       <li><strong>Git:</strong> Track changes like a pro. Learn <code>add</code>, <code>commit</code>, <code>push</code>, <code>pull</code>, <code>branch</code>.</li>
-                       <li><strong>GitHub/GitLab:</strong> Host your code online, collaborate, show off your work ✨.</li>
+                        <li><a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer" class="text-link">VS Code</a> (Highly Recommended): Free, powerful, huge extension library.
+                            <ul><li>Essential Extensions: <a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer" target="_blank" rel="noopener noreferrer" class="text-link">Live Server</a>, <a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode" target="_blank" rel="noopener noreferrer" class="text-link">Prettier - Code formatter</a>, <a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint" target="_blank" rel="noopener noreferrer" class="text-link">ESLint</a>.</li></ul>
+                        </li>
                     </ul>
                  </li>
-                 <li><strong>Command Line (Terminal):</strong> Get comfy using it for Git, npm, etc. It's faster! ⚡</li>
-                 <li><strong>Package Managers:</strong> npm (comes with Node.js) or yarn. For installing useful code libraries.</li>
-                 <li><strong>Node.js:</strong> Needed to run most modern web dev tools.</li>
+                 <li><strong>Version Control System (VCS):</strong>
+                     <ul>
+                         <li><strong>Git:</strong> Learn the basics! (<a href="https://git-scm.com/doc" target="_blank" rel="noopener noreferrer" class="text-link">Official Docs</a>, <a href="https://www.atlassian.com/git/tutorials" target="_blank" rel="noopener noreferrer" class="text-link">Atlassian Git Tutorials</a>).</li>
+                         <li><strong>Git Hosting:</strong> <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="text-link">GitHub</a>, <a href="https://about.gitlab.com/" target="_blank" rel="noopener noreferrer" class="text-link">GitLab</a>, <a href="https://bitbucket.org/" target="_blank" rel="noopener noreferrer" class="text-link">Bitbucket</a>. Create an account and push your projects!</li>
+                     </ul>
+                 </li>
+                 <li><strong>Command Line Interface (CLI):</strong> Get comfortable with your terminal (Terminal on Mac/Linux, PowerShell or WSL on Windows).</li>
+                 <li><strong>Package Managers:</strong> Install third-party code.
+                    <ul>
+                        <li><strong>npm:</strong> Comes with Node.js (<a href="https://nodejs.org/" target="_blank" rel="noopener noreferrer" class="text-link">Install Node.js here</a>). Manage packages via `package.json`.</li>
+                        <li><strong>yarn:</strong> Alternative package manager (<a href="https://yarnpkg.com/" target="_blank" rel="noopener noreferrer" class="text-link">Yarn Website</a>).</li>
+                    </ul>
+                 </li>
              </ul>
 
             <h3>Explore Further Concepts & Technologies 🔭</h3>
              <ul class="list-disc list-inside mb-4">
-                 <li><strong>CSS Stuff:</strong> BEM (naming convention), Sass/SCSS (CSS superpowers).</li>
-                 <li><strong>JS Frameworks/Libraries:</strong> The big leagues! React ⚛️, Vue.js 💚, Angular ❤️, Svelte 🔥. Pick one after mastering vanilla JS.</li>
-                 <li><strong>Build Tools:</strong> Vite (super fast!), Webpack. Automate boring tasks.</li>
-                 <li><strong>Linters/Formatters:</strong> ESLint, Prettier. Keep your code clean & consistent ✨.</li>
-                 <li><strong>Testing:</strong> Jest, Vitest, Cypress. Make sure your code actually works ✅.</li>
-                 <li><strong>Accessibility (a11y):</strong> Make sites usable for *everyone* ♿. Super important!</li>
-                 <li><strong>Performance:</strong> Make sites fast 🚀 (image optimization, etc.).</li>
-                 <li><strong>APIs:</strong> Talk to servers, get data ☁️.</li>
-                 <li><strong>TypeScript:</strong> JavaScript with type safety (catches errors early).</li>
+                 <li><strong>CSS Frameworks/Methodologies:</strong> <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer" class="text-link">Tailwind CSS</a> (Utility-First), <a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer" class="text-link">Bootstrap</a> (Component-Based), BEM (Naming Convention).</li>
+                 <li><strong>CSS Preprocessors:</strong> <a href="https://sass-lang.com/" target="_blank" rel="noopener noreferrer" class="text-link">Sass/SCSS</a> (Adds variables, nesting, mixins).</li>
+                 <li><strong>JavaScript Frameworks/Libraries:</strong> (Master Vanilla JS first!) <a href="https://react.dev/" target="_blank" rel="noopener noreferrer" class="text-link">React</a>, <a href="https://vuejs.org/" target="_blank" rel="noopener noreferrer" class="text-link">Vue.js</a>, <a href="https://angular.io/" target="_blank" rel="noopener noreferrer" class="text-link">Angular</a>, <a href="https://svelte.dev/" target="_blank" rel="noopener noreferrer" class="text-link">Svelte</a>.</li>
+                 <li><strong>Build Tools / Bundlers:</strong> <a href="https://vitejs.dev/" target="_blank" rel="noopener noreferrer" class="text-link">Vite</a> (Modern & Fast), <a href="https://webpack.js.org/" target="_blank" rel="noopener noreferrer" class="text-link">Webpack</a>.</li>
+                 <li><strong>Linters & Formatters:</strong> ESLint, Stylelint, Prettier (Keep code consistent!).</li>
+                 <li><strong>Testing:</strong> <a href="https://jestjs.io/" target="_blank" rel="noopener noreferrer" class="text-link">Jest</a> / <a href="https://vitest.dev/" target="_blank" rel="noopener noreferrer" class="text-link">Vitest</a> (Unit/Integration), <a href="https://www.cypress.io/" target="_blank" rel="noopener noreferrer" class="text-link">Cypress</a> / <a href="https://playwright.dev/" target="_blank" rel="noopener noreferrer" class="text-link">Playwright</a> (E2E).</li>
+                 <li><strong>Web Accessibility (a11y):</strong> Learn WCAG guidelines, use semantic HTML, test with screen readers (<a href="https://www.a11yproject.com/" target="_blank" rel="noopener noreferrer" class="text-link">The A11Y Project</a>).</li>
+                 <li><strong>Web Performance:</strong> Optimize images, minify code, reduce requests (<a href="https://web.dev/learn/performance/" target="_blank" rel="noopener noreferrer" class="text-link">web.dev Performance</a>).</li>
+                 <li><strong>APIs & Data Fetching:</strong> Learn about REST APIs, maybe <a href="https://graphql.org/" target="_blank" rel="noopener noreferrer" class="text-link">GraphQL</a>. Practice with public APIs (<a href="https://github.com/public-apis/public-apis" target="_blank" rel="noopener noreferrer" class="text-link">Public APIs List</a>).</li>
+                 <li><strong>TypeScript:</strong> Add static types to JavaScript (<a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer" class="text-link">TypeScript Website</a>).</li>
              </ul>
 
             <h3>Keep Learning! 📚</h3>
-            <p>Web dev changes fast! Stay curious, follow devs online, read docs (especially <a href="https://developer.mozilla.org/en-US/" target="_blank" rel="noopener noreferrer" class="text-link">MDN</a>!), and never stop building cool things. You got this! 💪</p>
-
+            <p>The web dev world moves fast! Stay curious, follow developers and blogs online, read documentation (especially <a href="https://developer.mozilla.org/en-US/" target="_blank" rel="noopener noreferrer" class="text-link">MDN</a>!), and never stop building cool things. You got this! 💪</p>
         </section>
-
     </main>
 
     <footer class="main-footer">
