@@ -47,9 +47,7 @@ body {
     font-size: 1.875rem; /* text-3xl */
     font-weight: 700; /* font-bold */
     color: #ffffff; /* White */
-    /* === UPDATED: Remove default browser margins === */
     margin: 0;
-    /* === ADDED: Add some bottom margin ONLY for mobile view === */
     margin-bottom: 0.5rem;
 }
 
@@ -68,7 +66,6 @@ body {
     text-decoration: none;
     font-size: 0.875rem; /* text-sm */
     font-weight: 500; /* font-medium */
-    /* === ADDED: Ensure links align well in flex === */
     display: inline-block; /* Helps with consistent height/padding */
 }
 
@@ -103,6 +100,11 @@ body {
     scroll-margin-top: 6rem; /* Offset for sticky header */
     color: #0f172a; /* slate-900 - Dark text for contrast */
 }
+/* Add bottom padding specifically to intro section */
+#intro.content-section {
+    padding-bottom: 4rem; /* pb-16 */
+}
+
 
 /* Section Headers */
 .section-header {
@@ -263,7 +265,7 @@ pre code { /* Code inside pre */
     color: #4c1d95; /* violet-900 */
 }
 
-/* === UPDATED Call-to-action Button (General) === */
+/* Call-to-action Button (General) */
 .cta-button {
     display: inline-block;
     /* Subtle gradient background */
@@ -289,6 +291,13 @@ pre code { /* Code inside pre */
     transform: translateY(0px) scale(0.98); /* Push down slightly */
     box-shadow: 0 2px 8px rgba(124, 58, 237, 0.2);
 }
+
+/* Specific margin for the main CTA button container on index.html */
+.cta-button-container {
+    margin-top: 5rem; /* Increased margin-top (adjust value as needed) */
+    text-align: center; /* Keep text-align here */
+}
+
 
 /* Quiz Specific Styles */
 .quiz-container {
