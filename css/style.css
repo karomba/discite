@@ -47,7 +47,9 @@ body {
     font-size: 1.875rem; /* text-3xl */
     font-weight: 700; /* font-bold */
     color: #ffffff; /* White */
+    /* === UPDATED: Remove default browser margins === */
     margin: 0;
+    /* === ADDED: Add some bottom margin ONLY for mobile view === */
     margin-bottom: 0.5rem;
 }
 
@@ -66,6 +68,7 @@ body {
     text-decoration: none;
     font-size: 0.875rem; /* text-sm */
     font-weight: 500; /* font-medium */
+    /* === ADDED: Ensure links align well in flex === */
     display: inline-block; /* Helps with consistent height/padding */
 }
 
@@ -260,30 +263,34 @@ pre code { /* Code inside pre */
     color: #4c1d95; /* violet-900 */
 }
 
-/* Call-to-action Button (General) */
+/* === UPDATED Call-to-action Button (General) === */
 .cta-button {
     display: inline-block;
-    background-color: #7c3aed; /* violet-600 */
+    /* Subtle gradient background */
+    background-image: linear-gradient(to right, #8b5cf6, #7c3aed); /* violet-500 to violet-600 */
     color: white;
-    padding: 0.75rem 1.5rem;
+    padding: 0.8rem 1.8rem; /* Slightly larger padding */
     border-radius: 1rem; /* Squircle */
     text-decoration: none;
     font-weight: 500;
-    border: none; /* Ensure no default border */
+    font-size: 1rem; /* Ensure font size is reasonable */
+    border: none;
     cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+    transition: all 0.3s ease; /* Smoother transition */
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3); /* Adjusted shadow */
+    text-align: center; /* Ensure text is centered if button wraps */
 }
 .cta-button:hover {
-    background-color: #6d28d9; /* violet-700 */
-    box-shadow: 0 6px 16px rgba(124, 58, 237, 0.4);
+    background-image: linear-gradient(to right, #7c3aed, #6d28d9); /* violet-600 to violet-700 */
+    box-shadow: 0 7px 20px rgba(124, 58, 237, 0.4); /* Enhanced shadow */
+    transform: translateY(-2px); /* Slight lift */
 }
 .cta-button:active {
-    transform: scale(0.98);
+    transform: translateY(0px) scale(0.98); /* Push down slightly */
     box-shadow: 0 2px 8px rgba(124, 58, 237, 0.2);
 }
 
-/* === Quiz Specific Styles === */
+/* Quiz Specific Styles */
 .quiz-container {
     margin-top: 2.5rem; /* mt-10 */
     padding-top: 1.5rem; /* pt-6 */
@@ -328,23 +335,24 @@ pre code { /* Code inside pre */
     accent-color: #7c3aed; /* violet-600 */
 }
 
-/* === UPDATED Quiz Submit Button Styling === */
+/* Quiz Submit Button Styling */
 .quiz-submit-button {
     /* Inherit from .cta-button but maybe make slightly different */
-    background-color: #8b5cf6; /* violet-500 */
+    background-image: linear-gradient(to right, #a78bfa, #8b5cf6); /* Lighter violet gradient */
     padding: 0.6rem 1.2rem;
-    font-size: 1rem; /* Slightly larger */
+    font-size: 0.95rem; /* Slightly smaller than main CTA */
     margin-top: 1rem; /* Add space above the button */
     align-self: flex-start; /* Align button to the left */
     box-shadow: 0 3px 10px rgba(139, 92, 246, 0.3);
 }
 .quiz-submit-button:hover {
-    background-color: #7c3aed; /* violet-600 */
+    background-image: linear-gradient(to right, #8b5cf6, #7c3aed);
     box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
+    transform: translateY(-1px);
 }
 .quiz-submit-button:active {
-    background-color: #6d28d9; /* violet-700 */
-    transform: scale(0.97);
+    background-image: linear-gradient(to right, #7c3aed, #6d28d9);
+    transform: translateY(0px) scale(0.97);
     box-shadow: 0 1px 5px rgba(139, 92, 246, 0.2);
 }
 
@@ -365,7 +373,7 @@ pre code { /* Code inside pre */
     font-weight: 600;
 }
 /* Class added by JS for overall score styling */
-.quiz-results .final-score {
+.quiz-results .final-score { /* Renamed for clarity */
     font-size: 1.125rem; /* text-lg */
     font-weight: 600; /* font-semibold */
     margin-top: 1rem; /* mt-4 */
