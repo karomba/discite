@@ -28,9 +28,8 @@
     </header>
 
     <main class="container main-content">
-
-        <section id="javascript" class="content-section">
-             <h2 class="text-3xl md:text-4xl font-bold section-header">
+        <section id="javascript" class="content-section" aria-labelledby="js-main-heading">
+             <h2 id="js-main-heading" class="text-3xl md:text-4xl font-bold section-header">
                 JavaScript: Making Web Pages Interactive ✨🧠 (Beginner to Winner!)
             </h2>
             <p class="mb-4">Welcome to the JavaScript zone! While HTML structures content and CSS styles it, JavaScript is the **programming language** that adds behavior, interactivity, and dynamic updates to your webpages. It's what makes websites feel alive! ⚡</p>
@@ -410,7 +409,41 @@
                   <li>**Lint Your Code:** Use ESLint to catch potential errors and enforce style guides.</li>
               </ul>
 
-              <p class="mt-6 font-semibold">JavaScript is vast, but mastering these fundamentals is key! Practice by adding interactivity to your projects and exploring how different features work together. Happy coding! 💻</p>
+            <div class="quiz-container mt-10 pt-6 border-t border-purple-200 border-opacity-50" id="js-quiz">
+                <h3 class="text-xl font-semibold mb-4 text-purple-800">Check Your JavaScript Knowledge! 🤔</h3>
+                <form class="quiz-form space-y-6">
+                    <fieldset class="quiz-question p-4 border border-purple-300 border-opacity-50 rounded-lg squircle-sm">
+                        <legend class="text-lg font-medium mb-2 px-1">1. Which keyword is preferred for declaring variables that won't be reassigned?</legend>
+                        <div class="space-y-2">
+                            <div><label><input type="radio" name="q1" value="a"> var</label></div>
+                            <div><label><input type="radio" name="q1" value="b"> let</label></div>
+                            <div><label><input type="radio" name="q1" value="c"> const</label></div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="quiz-question p-4 border border-purple-300 border-opacity-50 rounded-lg squircle-sm">
+                        <legend class="text-lg font-medium mb-2 px-1">2. How do you select an element with the ID `main-title` using JavaScript?</legend>
+                         <div class="space-y-2">
+                            <div><label><input type="radio" name="q2" value="a"> document.select("#main-title")</label></div>
+                            <div><label><input type="radio" name="q2" value="b"> document.getElementById("main-title")</label></div>
+                            <div><label><input type="radio" name="q2" value="c"> document.getElement("main-title")</label></div>
+                        </div>
+                    </fieldset>
+
+                     <fieldset class="quiz-question p-4 border border-purple-300 border-opacity-50 rounded-lg squircle-sm">
+                        <legend class="text-lg font-medium mb-2 px-1">3. Which method attaches an event handler function to an element?</legend>
+                         <div class="space-y-2">
+                            <div><label><input type="radio" name="q3" value="a"> element.attachEvent(...) </label></div>
+                            <div><label><input type="radio" name="q3" value="b"> element.onClick = ...</label></div>
+                            <div><label><input type="radio" name="q3" value="c"> element.addEventListener(...)</label></div>
+                        </div>
+                    </fieldset>
+
+                    <button type="submit" class="cta-button quiz-submit-button">Check Answers ✅</button>
+                </form>
+                <div class="quiz-results mt-4 p-4 rounded-lg squircle-sm" aria-live="polite"></div>
+            </div>
+            <p class="mt-6 font-semibold">JavaScript is vast, but mastering these fundamentals is key! Practice by adding interactivity to your projects and exploring how different features work together. Happy coding! 💻</p>
         </section>
 
     </main>
