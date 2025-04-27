@@ -15,17 +15,35 @@
 <body> <header class="sticky-header">
         <div class="container header-container">
              <div class="logo">
-              <a href="index.html" aria-label="Discite Homepage"> <svg width="150" height="50" viewBox="0 0 150 50" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <linearGradient id="glassGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" style="stop-color:rgba(255, 255, 255, 0.3); stop-opacity:1" />
-                      <stop offset="100%" style="stop-color:rgba(255, 255, 255, 0.1); stop-opacity:1" />
-                    </linearGradient>
-                  </defs>
-                  <rect x="1" y="1" width="148" height="48" rx="15" ry="15" fill="url(#glassGradient)" stroke="rgba(255, 255, 255, 0.4)" stroke-width="1"/>
-                  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="'Inter', sans-serif" font-size="20" font-weight="700" fill="#ffffff">Discite</text>
+              <a href="index.html" aria-label="Discite Homepage"> <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <filter id="glass-blur" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+                            <feOffset in="blur" dx="1.5" dy="1.5" result="offsetBlur"/>
+                            <feComposite in="SourceGraphic" in2="offsetBlur" operator="in" result="shadowEffect"/>
+                            <feFlood flood-color="white" flood-opacity="0.4" result="floodWhite"/>
+                            <feComposite in="floodWhite" in2="shadowEffect" operator="in" result="innerHighlight"/>
+                            <feMerge>
+                                <feMergeNode in="blur"/>
+                                <feMergeNode in="innerHighlight"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                        <linearGradient id="glass-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:rgba(88, 101, 242, 0.65)" />
+                            <stop offset="100%" style="stop-color:rgba(88, 101, 242, 0.45)" />
+                        </linearGradient>
+                    </defs>
+                    <g filter="url(#glass-blur)">
+                        <path d="M 20 5 L 80 5 Q 95 5, 95 20 L 95 80 Q 95 95, 80 95 L 20 95 Q 5 95, 5 80 L 5 20 Q 5 5, 20 5 Z"
+                            fill="url(#glass-gradient)"
+                            stroke="rgba(255, 255, 255, 0.35)"
+                            stroke-width="1.5"
+                        />
+                    </g>
+                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="'Inter', sans-serif" font-size="65" font-weight="700" fill="#000000" dy=".05em">D</text>
                 </svg>
-              </a>
+                </a>
             </div>
             <nav class="main-nav" aria-label="Main navigation">
                 <a href="index.html" class="nav-link">Introduction</a>
