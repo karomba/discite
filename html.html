@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discite: HTML Fundamentals 🏗️</title>
+    <title>Discite: HTML Fundamentals 🏗️ (Comprehensive)</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,149 +31,386 @@
 
         <section id="html" class="content-section">
             <h2 class="text-3xl md:text-4xl font-bold section-header">
-                HTML: Structuring the Web 🏗️
+                HTML: Structuring the Web 🏗️ (Beginner to Winner!)
             </h2>
-            <p class="mb-4">HTML (HyperText Markup Language) uses "tags" (like <code>&lt;p&gt;</code>) to structure content. Think of it as the blueprint for your webpage. Most tags have an opener and a closer (<code>&lt;p&gt;...&lt;/p&gt;</code>).</p>
+            <p class="mb-4">Welcome to the HTML deep dive! HTML (HyperText Markup Language) is the absolute foundation of every webpage. It's not a programming language (it doesn't have logic like loops or conditions), but a **markup language** used to define the structure and meaning (semantics) of your content. Think of it as the architect's blueprint 📐 or the skeleton 🦴 of your website.</p>
+            <p class="mb-4">We'll go from the very basics to more advanced concepts you'll need to build well-structured, accessible, and SEO-friendly websites.</p>
 
-            <h3>Basic Document Structure 뼈대</h3>
-            <p class="mb-2">Every HTML page needs this basic setup:</p>
+            <h3>1. Basic Document Structure 뼈대</h3>
+            <p class="mb-2">Every HTML document needs this core structure to be valid and work correctly in browsers:</p>
             <div class="code-block-wrapper">
                 <pre><code class="language-html">
-<span class="html-comment">&lt;!-- Tells the browser it's HTML5 --&gt;</span>
+<span class="html-comment">&lt;!-- DOCTYPE Declaration: Tells the browser which HTML version (HTML5) --&gt;</span>
 &lt;!DOCTYPE html&gt;
 
-<span class="html-comment">&lt;!-- Root element (speaks English) --&gt;</span>
-&lt;<span class="html-tag">html</span> <span class="html-attr">lang</span>="<span class="html-value">en</span>"&gt;
+<span class="html-comment">&lt;!-- html Element: The root of the document. 'lang' attribute is crucial for accessibility and SEO. --&gt;</span>
+&lt;<span class="html-tag">html</span> <span class="html-attr">lang</span>="<span class="html-value">en</span>"&gt; <span class="html-comment">&lt;!-- Use appropriate language code, e.g., "fr", "es" --&gt;</span>
 
-  <span class="html-comment">&lt;!-- Head: Stuff for the browser (invisible stuff) --&gt;</span>
+  <span class="html-comment">&lt;!-- head Element: Contains metadata (data about the data). Not displayed on the page itself. --&gt;</span>
   &lt;<span class="html-tag">head</span>&gt;
-    &lt;<span class="html-tag">meta</span> <span class="html-attr">charset</span>="<span class="html-value">UTF-8</span>"&gt; <span class="html-comment">&lt;!-- Handles text characters correctly --&gt;</span>
-    &lt;<span class="html-tag">meta</span> <span class="html-attr">name</span>="<span class="html-value">viewport</span>" <span class="html-attr">content</span>="<span class="html-value">width=device-width, initial-scale=1.0</span>"&gt; <span class="html-comment">&lt;!-- Makes it mobile-friendly --&gt;</span>
-    &lt;<span class="html-tag">title</span>&gt;Page Title ✨&lt;/<span class="html-tag">title</span>&gt; <span class="html-comment">&lt;!-- Shows in the browser tab --&gt;</span>
-    &lt;<span class="html-tag">link</span> <span class="html-attr">rel</span>="<span class="html-value">stylesheet</span>" <span class="html-attr">href</span>="<span class="html-value">css/style.css</span>"&gt; <span class="html-comment">&lt;!-- Links your CSS styles --&gt;</span>
+    <span class="html-comment">&lt;!-- Character Encoding: Essential for displaying text correctly. UTF-8 is standard. --&gt;</span>
+    &lt;<span class="html-tag">meta</span> <span class="html-attr">charset</span>="<span class="html-value">UTF-8</span>"&gt;
+
+    <span class="html-comment">&lt;!-- Viewport Meta Tag: Configures the viewport for responsive design on mobile devices. --&gt;</span>
+    &lt;<span class="html-tag">meta</span> <span class="html-attr">name</span>="<span class="html-value">viewport</span>" <span class="html-attr">content</span>="<span class="html-value">width=device-width, initial-scale=1.0</span>"&gt;
+
+    <span class="html-comment">&lt;!-- Title Element: Text shown in the browser tab or window title bar. Important for SEO. --&gt;</span>
+    &lt;<span class="html-tag">title</span>&gt;My Awesome Web Page ✨&lt;/<span class="html-tag">title</span>&gt;
+
+    <span class="html-comment">&lt;!-- Link to External CSS Stylesheet --&gt;</span>
+    &lt;<span class="html-tag">link</span> <span class="html-attr">rel</span>="<span class="html-value">stylesheet</span>" <span class="html-attr">href</span>="<span class="html-value">css/style.css</span>"&gt;
+
+    <span class="html-comment">&lt;!-- Other meta tags (description, keywords), favicons, etc., go here --&gt;</span>
   &lt;/<span class="html-tag">head</span>&gt;
 
-  <span class="html-comment">&lt;!-- Body: The actual visible content 🤩 --&gt;</span>
+  <span class="html-comment">&lt;!-- body Element: Contains ALL the visible content of the page. --&gt;</span>
   &lt;<span class="html-tag">body</span>&gt;
-    &lt;<span class="html-tag">h1</span>&gt;Main Heading&lt;/<span class="html-tag">h1</span>&gt;
-    &lt;<span class="html-tag">p</span>&gt;This is a paragraph.&lt;/<span class="html-tag">p</span>&gt;
+
+    &lt;<span class="html-tag">h1</span>&gt;Welcome to the Page!&lt;/<span class="html-tag">h1</span>&gt;
+    &lt;<span class="html-tag">p</span>&gt;This content is visible to the user.&lt;/<span class="html-tag">p</span>&gt;
+
+    <span class="html-comment">&lt;!-- Link to External JavaScript (often placed here for performance) --&gt;</span>
+    &lt;<span class="html-tag">script</span> <span class="html-attr">src</span>="<span class="html-value">js/main.js</span>" <span class="html-attr">defer</span>&gt;&lt;/<span class="html-tag">script</span>&gt;
   &lt;/<span class="html-tag">body</span>&gt;
 
 &lt;/<span class="html-tag">html</span>&gt;
                 </code></pre>
                 <button class="copy-button" aria-label="Copy code to clipboard">Copy</button>
             </div>
+            <p class="mt-2">Key takeaways: Use <code>&lt;!DOCTYPE html&gt;</code>, the <code>&lt;html&gt;</code> tag with `lang`, a <code>&lt;head&gt;</code> for metadata (especially `charset`, `viewport`, `title`, CSS links), and a <code>&lt;body&gt;</code> for visible content.</p>
 
-            <h3>Common Tags & Elements 👇</h3>
-            <h4>Text Content ✍️</h4>
-            <ul class="list-disc list-inside mb-4">
-                <li><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>: Headings (Big important text to less important).</li>
-                <li><code>&lt;p&gt;</code>: Paragraphs (Just normal text blocks).</li>
-                <li><code>&lt;a href="..."&gt;Link Text&lt;/a&gt;</code>: Links to other pages or sites 🔗.</li>
-                <li><code>&lt;strong&gt;</code> / <code>&lt;b&gt;</code>: **Bold** text (<code>strong</code> means it's important).</li>
-                <li><code>&lt;em&gt;</code> / <code>&lt;i&gt;</code>: *Italic* text (<code>em</code> means emphasis).</li>
-                <li><code>&lt;span&gt;</code>: For styling small bits of text inline.</li>
-                <li><code>&lt;br&gt;</code>: Line break (use sparingly!).</li>
-                <li><code>&lt;hr&gt;</code>: Horizontal line (like a divider).</li>
-                <li><code>&lt;ul&gt;</code> (bullets ⚫️), <code>&lt;ol&gt;</code> (numbers 🔢), <code>&lt;li&gt;</code> (list items).</li>
-                <li><code>&lt;blockquote&gt;</code>: For quoting someone famous (or not 😉).</li>
-                <li><code>&lt;code&gt;</code>: For showing `inline code`.</li>
-                <li><code>&lt;pre&gt;</code>: For blocks of code (keeps spacing!).</li>
-            </ul>
-
-             <h4>Grouping & Structure (Semantic HTML) 🧱</h4>
-             <p class="mb-2">Use tags that describe the content's purpose (good for SEO & accessibility ✅).</p>
-            <ul class="list-disc list-inside mb-4">
-                <li><code>&lt;div&gt;</code>: Generic box (use when nothing else fits).</li>
-                <li><code>&lt;header&gt;</code>: Top intro part (logo, nav).</li>
-                <li><code>&lt;nav&gt;</code>: Main navigation links area.</li>
-                <li><code>&lt;main&gt;</code>: The main content, unique to the page.</li>
-                <li><code>&lt;article&gt;</code>: A self-contained piece (blog post, etc.).</li>
-                <li><code>&lt;section&gt;</code>: A themed group of content.</li>
-                <li><code>&lt;aside&gt;</code>: Sidebar-ish content.</li>
-                <li><code>&lt;footer&gt;</code>: Bottom stuff (copyright, etc.).</li>
-                <li><code>&lt;figure&gt;</code> & <code>&lt;figcaption&gt;</code>: Image/diagram with a caption.</li>
-            </ul>
-
-            <h4>Media 🖼️🎵🎬</h4>
-            <ul class="list-disc list-inside mb-4">
-                <li><code>&lt;img src="..." alt="..." width="..." height="..." loading="lazy"&gt;</code>: Images! `alt` text is super important for accessibility. `loading="lazy"` helps speed things up.</li>
-                <li><code>&lt;audio controls src="..."&gt;...&lt;/audio&gt;</code>: Sound player.</li>
-                <li><code>&lt;video controls src="..." ...&gt;...&lt;/video&gt;</code>: Video player.</li>
-                <li><code>&lt;picture&gt;</code>: For fancy responsive images.</li>
-            </ul>
-
-            <h4>Forms 📝</h4>
-            <p class="mb-2">Let users type stuff in.</p>
-            <ul class="list-disc list-inside mb-4">
-                 <li><code>&lt;form&gt;</code>, <code>&lt;label&gt;</code>, <code>&lt;input&gt;</code> (text, password, email, checkbox, radio, submit, etc.), <code>&lt;textarea&gt;</code>, <code>&lt;select&gt;</code>, <code>&lt;button&gt;</code>.</li>
-            </ul>
-
-             <h4>Tables 📊</h4>
-             <p class="mb-2">For showing data in rows & columns.</p>
-            <ul class="list-disc list-inside mb-4">
-                <li><code>&lt;table&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;th&gt;</code>, <code>&lt;td&gt;</code>.</li>
-            </ul>
-
-            <h3>Attributes ✨</h3>
-            <p class="mb-2">Extra info added to tags (<code>name="value"</code>).</p>
-            <ul class="list-disc list-inside mb-4">
-                <li><strong>Global:</strong> <code>id</code> (unique!), <code>class</code> (reusable style group), <code>style</code> (inline CSS - avoid mostly), <code>title</code> (tooltip), <code>lang</code>, <code>data-*</code> (custom data).</li>
-                <li><strong>Specific:</strong> <code>href</code>, <code>src</code>, <code>alt</code>, <code>type</code>, <code>value</code>, <code>placeholder</code>, <code>required</code>.</li>
-            </ul>
-
-            <h3>HTML Example 📋</h3>
+            <h3>2. Core Content Elements 👇</h3>
+            <p class="mb-2">These are the bread-and-butter tags you'll use constantly.</p>
+            <h4>Headings <code>&lt;h1&gt;</code> - <code>&lt;h6&gt;</code></h4>
+            <p>Define section headings. <code>&lt;h1&gt;</code> is the most important (usually the main page title, use only one per page ideally), down to <code>&lt;h6&gt;</code> for sub-sub-sections. Use them hierarchically!</p>
             <div class="code-block-wrapper">
                 <pre><code class="language-html">
-&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;HTML Example Page&lt;/title&gt;
-    &lt;link rel="stylesheet" href="css/style.css"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;<span class="html-tag">header</span>&gt;
-        &lt;<span class="html-tag">h1</span> <span class="html-attr">id</span>="<span class="html-value">main-heading</span>"&gt;HTML Intro ✨&lt;/<span class="html-tag">h1</span>&gt;
-        &lt;<span class="html-tag">nav</span> <span class="html-attr">aria-label</span>="<span class="html-value">Main navigation</span>"&gt;
-            &lt;<span class="html-tag">ul</span>&gt;
-                &lt;<span class="html-tag">li</span>&gt;&lt;<span class="html-tag">a</span> <span class="html-attr">href</span>="<span class="html-value">#basics</span>"&gt;Basics&lt;/<span class="html-tag">a</span>&gt;&lt;/<span class="html-tag">li</span>&gt;
-                &lt;<span class="html-tag">li</span>&gt;&lt;<span class="html-tag">a</span> <span class="html-attr">href</span>="<span class="html-value">#forms</span>"&gt;Forms&lt;/<span class="html-tag">a</span>&gt;&lt;/<span class="html-tag">li</span>&gt;
-            &lt;/<span class="html-tag">ul</span>&gt;
-        &lt;/<span class="html-tag">nav</span>&gt;
-    &lt;/<span class="html-tag">header</span>&gt;
+&lt;<span class="html-tag">h1</span>&gt;Main Page Title&lt;/<span class="html-tag">h1</span>&gt;
+&lt;<span class="html-tag">section</span>&gt;
+  &lt;<span class="html-tag">h2</span>&gt;Section Title&lt;/<span class="html-tag">h2</span>&gt;
+  &lt;<span class="html-tag">p</span>&gt;Content...&lt;/<span class="html-tag">p</span>&gt;
+  &lt;<span class="html-tag">h3</span>&gt;Subsection Title&lt;/<span class="html-tag">h3</span>&gt;
+  &lt;<span class="html-tag">p</span>&gt;More content...&lt;/<span class="html-tag">p</span>&gt;
+&lt;/<span class="html-tag">section</span>&gt;
+                </code></pre>
+                <button class="copy-button" aria-label="Copy code to clipboard">Copy</button>
+            </div>
 
-    &lt;<span class="html-tag">main</span>&gt;
-        &lt;<span class="html-tag">section</span> <span class="html-attr">id</span>="<span class="html-value">basics</span>" <span class="html-attr">aria-labelledby</span>="<span class="html-value">basics-heading</span>"&gt;
-            &lt;<span class="html-tag">h2</span> <span class="html-attr">id</span>="<span class="html-value">basics-heading</span>"&gt;Basic Elements 👇&lt;/<span class="html-tag">h2</span>&gt;
-            &lt;<span class="html-tag">p</span>&gt;This page shows off different HTML elements.&lt;/<span class="html-tag">p</span>&gt;
-            &lt;<span class="html-tag">figure</span>&gt;
-              &lt;<span class="html-tag">img</span> <span class="html-attr">src</span>="<span class="html-value">https://placehold.co/200x100/a78bfa/ffffff?text=HTML+Image+%F0%9F%96%BC%EF%B8%8F</span>" <span class="html-attr">alt</span>="<span class="html-value">Placeholder image</span>" <span class="html-attr">width</span>="<span class="html-value">200</span>" <span class="html-attr">height</span>="<span class="html-value">100</span>" <span class="html-attr">loading</span>="<span class="html-value">lazy</span>"&gt;
-              &lt;<span class="html-tag">figcaption</span>&gt;A placeholder image example.&lt;/<span class="html-tag">figcaption</span>&gt;
-            &lt;/<span class="html-tag">figure</span>&gt;
-        &lt;/<span class="html-tag">section</span>&gt;
+            <h4>Paragraphs <code>&lt;p&gt;</code></h4>
+            <p>The standard tag for blocks of text.</p>
+            <div class="code-block-wrapper">
+                <pre><code class="language-html">
+&lt;<span class="html-tag">p</span>&gt;This is the first paragraph. Browsers usually add space between paragraphs.&lt;/<span class="html-tag">p</span>&gt;
+&lt;<span class="html-tag">p</span>&gt;This is the second paragraph.&lt;/<span class="html-tag">p</span>&gt;
+                </code></pre>
+                <button class="copy-button" aria-label="Copy code to clipboard">Copy</button>
+            </div>
 
-        &lt;<span class="html-tag">section</span> <span class="html-attr">id</span>="<span class="html-value">forms</span>" <span class="html-attr">aria-labelledby</span>="<span class="html-value">forms-heading</span>"&gt;
-            &lt;<span class="html-tag">h2</span> <span class="html-attr">id</span>="<span class="html-value">forms-heading</span>"&gt;Example Form 📝&lt;/<span class="html-tag">h2</span>&gt;
-            &lt;<span class="html-tag">form</span> <span class="html-attr">action</span>="<span class="html-value">/submit-data</span>" <span class="html-attr">method</span>="<span class="html-value">post</span>"&gt;
-                &lt;<span class="html-tag">div</span>&gt;
-                  &lt;<span class="html-tag">label</span> <span class="html-attr">for</span>="<span class="html-value">username</span>"&gt;Username:&lt;/<span class="html-tag">label</span>&gt;
-                  &lt;<span class="html-tag">input</span> <span class="html-attr">type</span>="<span class="html-value">text</span>" <span class="html-attr">id</span>="<span class="html-value">username</span>" <span class="html-attr">name</span>="<span class="html-value">user_name</span>" <span class="html-attr">required</span>&gt;
-                &lt;/<span class="html-tag">div</span>&gt;
-                &lt;<span class="html-tag">button</span> <span class="html-attr">type</span>="<span class="html-value">submit</span>"&gt;Submit ✅&lt;/<span class="html-tag">button</span>&gt;
-            &lt;/<span class="html-tag">form</span>&gt;
-        &lt;/<span class="html-tag">section</span>&gt;
-    &lt;/<span class="html-tag">main</span>&gt;
+            <h4>Links (Anchors) <code>&lt;a&gt;</code> 🔗</h4>
+            <p>Create hyperlinks to other pages or resources. The <code>href</code> attribute is essential.</p>
+            <div class="code-block-wrapper">
+                <pre><code class="language-html">
+<span class="html-comment">&lt;!-- Link to an external website (opens in new tab for good UX) --&gt;</span>
+&lt;<span class="html-tag">a</span> <span class="html-attr">href</span>="<span class="html-value">https://developer.mozilla.org/</span>" <span class="html-attr">target</span>="<span class="html-value">_blank</span>" <span class="html-attr">rel</span>="<span class="html-value">noopener noreferrer</span>"&gt;Visit MDN&lt;/<span class="html-tag">a</span>&gt;
 
-    &lt;<span class="html-tag">footer</span>&gt;
-        &lt;<span class="html-tag">p</span>&gt;&copy; 2025 Discite Learning&lt;/<span class="html-tag">p</span>&gt;
-    &lt;/<span class="html-tag">footer</span>&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+<span class="html-comment">&lt;!-- Link to another page on your site --&gt;</span>
+&lt;<span class="html-tag">a</span> <span class="html-attr">href</span>="<span class="html-value">/about.html</span>"&gt;About Us&lt;/<span class="html-tag">a</span>&gt;
+
+<span class="html-comment">&lt;!-- Link to an element on the *same* page (uses ID) --&gt;</span>
+&lt;<span class="html-tag">a</span> <span class="html-attr">href</span>="<span class="html-value">#section-two</span>"&gt;Go to Section Two&lt;/<span class="html-tag">a</span>&gt;
+
+<span class="html-comment">&lt;!-- Link to start an email --&gt;</span>
+&lt;<span class="html-tag">a</span> <span class="html-attr">href</span>="<span class="html-value">mailto:info@example.com</span>"&gt;Email Us&lt;/<span class="html-tag">a</span>&gt;
+
+<span class="html-comment">&lt;!-- Link to make a phone call --&gt;</span>
+&lt;<span class="html-tag">a</span> <span class="html-attr">href</span>="<span class="html-value">tel:+1234567890</span>"&gt;Call Us&lt;/<span class="html-tag">a</span>&gt;
+                </code></pre>
+                <button class="copy-button" aria-label="Copy code to clipboard">Copy</button>
+            </div>
+            <p class="mt-2"><code>target="_blank"</code> opens the link in a new tab. <code>rel="noopener noreferrer"</code> is important for security when using `target="_blank"`.</p>
+
+            <h4>Images <code>&lt;img&gt;</code> 🖼️</h4>
+            <p>Embed images. It's a self-closing tag (no <code>&lt;/img&gt;</code> needed). `src` and `alt` are crucial.</p>
+            <div class="code-block-wrapper">
+                <pre><code class="language-html">
+&lt;<span class="html-tag">img</span>
+  <span class="html-attr">src</span>="<span class="html-value">images/logo.png</span>"         <span class="html-comment">&lt;!-- Path to the image file --&gt;</span>
+  <span class="html-attr">alt</span>="<span class="html-value">Discite Company Logo</span>"    <span class="html-comment">&lt;!-- ESSENTIAL: Description for screen readers & if image fails --&gt;</span>
+  <span class="html-attr">width</span>="<span class="html-value">150</span>"                 <span class="html-comment">&lt;!-- Intrinsic width (pixels) - helps prevent layout shift --&gt;</span>
+  <span class="html-attr">height</span>="<span class="html-value">50</span>"                  <span class="html-comment">&lt;!-- Intrinsic height (pixels) - helps prevent layout shift --&gt;</span>
+  <span class="html-attr">loading</span>="<span class="html-value">lazy</span>"              <span class="html-comment">&lt;!-- Defers loading until image is near viewport (good for performance) --&gt;</span>
+&gt;
+                </code></pre>
+                <button class="copy-button" aria-label="Copy code to clipboard">Copy</button>
+            </div>
+            <p class="mt-2">Always provide descriptive `alt` text! If the image is purely decorative, use `alt=""`.</p>
+
+            <h4>Lists <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code></h4>
+            <p>For grouping related items.</p>
+            <ul class="list-disc list-inside mb-4">
+                <li><code>&lt;ul&gt;</code>: Unordered List (bullets ⚫️).</li>
+                <li><code>&lt;ol&gt;</code>: Ordered List (numbers 🔢). Can use `type` attribute (<code>"a"</code>, <code>"i"</code>) or `start` attribute.</li>
+                <li><code>&lt;li&gt;</code>: List Item (goes inside `ul` or `ol`).</li>
+            </ul>
+            <div class="code-block-wrapper">
+                <pre><code class="language-html">
+&lt;<span class="html-tag">h4</span>&gt;Favorite Fruits&lt;/<span class="html-tag">h4</span>&gt;
+&lt;<span class="html-tag">ul</span>&gt;
+  &lt;<span class="html-tag">li</span>&gt;Apples 🍎&lt;/<span class="html-tag">li</span>&gt;
+  &lt;<span class="html-tag">li</span>&gt;Bananas 🍌&lt;/<span class="html-tag">li</span>&gt;
+  &lt;<span class="html-tag">li</span>&gt;Cherries 🍒&lt;/<span class="html-tag">li</span>&gt;
+&lt;/<span class="html-tag">ul</span>&gt;
+
+&lt;<span class="html-tag">h4</span>&gt;Steps to Make Tea&lt;/<span class="html-tag">h4</span>&gt;
+&lt;<span class="html-tag">ol</span> <span class="html-attr">start</span>="<span class="html-value">1</span>"&gt;
+  &lt;<span class="html-tag">li</span>&gt;Boil water 🔥&lt;/<span class="html-tag">li</span>&gt;
+  &lt;<span class="html-tag">li</span>&gt;Add tea bag 🍵&lt;/<span class="html-tag">li</span>&gt;
+  &lt;<span class="html-tag">li</span>&gt;Steep for 3-5 minutes ⏳&lt;/<span class="html-tag">li</span>&gt;
+  &lt;<span class="html-tag">li</span>&gt;Enjoy! 👍&lt;/<span class="html-tag">li</span>&gt;
+&lt;/<span class="html-tag">ol</span>&gt;
+                </code></pre>
+                <button class="copy-button" aria-label="Copy code to clipboard">Copy</button>
+            </div>
+
+            <h3>3. Text Formatting & Inline Elements ✍️</h3>
+            <p>Tags used within blocks of text (like <code>&lt;p&gt;</code>) to add meaning or style.</p>
+            <ul class="list-disc list-inside mb-4">
+                <li><code>&lt;strong&gt;</code>: Marks text with strong importance (usually bold).</li>
+                <li><code>&lt;em&gt;</code>: Marks text with emphasis (usually italic).</li>
+                <li><code>&lt;b&gt;</code>: Bring Attention To (bold, use if no semantic importance).</li>
+                <li><code>&lt;i&gt;</code>: Idiomatic Text (italic, e.g., technical terms, thoughts, use if no semantic emphasis).</li>
+                <li><code>&lt;span&gt;</code>: Generic inline container, no semantic meaning, used purely for CSS/JS targeting.</li>
+                <li><code>&lt;code&gt;</code>: Represents a fragment of computer code.</li>
+                <li><code>&lt;pre&gt;</code>: Preformatted text. Preserves whitespace and line breaks, often used with <code>&lt;code&gt;</code> for code blocks.</li>
+                <li><code>&lt;br&gt;</code>: Line break (use sparingly).</li>
+                <li><code>&lt;hr&gt;</code>: Thematic break (horizontal rule).</li>
+                <li><code>&lt;sub&gt;</code>/<code>&lt;sup&gt;</code>: Subscript / Superscript.</li>
+                <li><code>&lt;q&gt;</code>: Short inline quotation (adds quotes).</li>
+                <li><code>&lt;cite&gt;</code>: Title of a cited creative work.</li>
+                <li><code>&lt;dfn&gt;</code>: Defining instance of a term.</li>
+                <li><code>&lt;abbr title="..."&gt;</code>: Abbreviation (full expansion in `title`).</li>
+                <li><code>&lt;time datetime="..."&gt;</code>: Represents a specific time/date.</li>
+            </ul>
+            <div class="code-block-wrapper">
+                <pre><code class="language-html">
+&lt;<span class="html-tag">p</span>&gt;Use &lt;<span class="html-tag">strong</span>&gt;strong&lt;/<span class="html-tag">strong</span>&gt; for important text and &lt;<span class="html-tag">em</span>&gt;emphasis&lt;/<span class="html-tag">em</span>&gt;.
+You can style a &lt;<span class="html-tag">span</span> <span class="html-attr">class</span>="<span class="html-value">highlight</span>"&gt;specific word&lt;/<span class="html-tag">span</span>&gt;.
+The command is &lt;<span class="html-tag">code</span>&gt;git commit -m "message"&lt;/<span class="html-tag">code</span>&gt;.&lt;/<span class="html-tag">p</span>&gt;
+                </code></pre>
+                <button class="copy-button" aria-label="Copy code to clipboard">Copy</button>
+            </div>
+
+            <h3>4. Attributes ✨</h3>
+            <p class="mb-2">Attributes provide extra information about elements and are always in the opening tag: <code>&lt;tag attribute="value"&gt;</code>.</p>
+            <h4>Global Attributes</h4>
+            <p>Can be used on (almost) any HTML element.</p>
+            <ul class="list-disc list-inside mb-4">
+                <li><code>id="unique-name"</code>: A unique identifier for the element on the page. Used by CSS (<code>#unique-name</code>) and JS (<code>getElementById</code>). **Must be unique!**</li>
+                <li><code>class="class1 class2"</code>: One or more space-separated class names. Used by CSS (<code>.class1</code>) and JS to group/style elements. Reusable.</li>
+                <li><code>style="css-property: value;"</code>: Inline CSS. Avoid for maintainability; use external CSS files.</li>
+                <li><code>title="Extra info"</code>: Shows a tooltip on hover.</li>
+                <li><code>lang="en-US"</code>: Specifies the language of the element's content.</li>
+                <li><code>tabindex="0"</code> / <code>"-1"</code>: Controls keyboard focus order.</li>
+                <li><code>data-*="some-value"</code>: Custom data attributes. Store data for JS use (e.g., <code>data-user-id="123"</code>). Accessed in JS via <code>element.dataset.userId</code>.</li>
+                <li><code>hidden</code>: Hides the element (like CSS <code>display: none</code>).</li>
+            </ul>
+            <h4>Specific Attributes</h4>
+            <p>Apply only to certain elements (we've seen `href`, `src`, `alt`, `width`, `height`, `type`, `value`, `name`, `required`, `placeholder`, `for`, `action`, `method`, etc.). Always check documentation (like MDN) for valid attributes for each tag.</p>
+
+            <h3>5. Semantic HTML 🧱 (Super Important!)</h3>
+            <p class="mb-2">Using HTML tags that accurately describe the *meaning* and *purpose* of the content they enclose, rather than just how they look. Why? 🤔</p>
+            <ul class="list-disc list-inside mb-4">
+                <li>**Accessibility (a11y):** Screen readers use semantic tags to understand page structure and navigate effectively ♿.</li>
+                <li>**SEO:** Search engines better understand your content, potentially improving rankings 📈.</li>
+                <li>**Maintainability:** Code is easier to read and understand for developers (including future you!).</li>
+                <li>**Styling Hooks:** Provides meaningful hooks for CSS without relying solely on generic `div`s and `span`s.</li>
+            </ul>
+            <h4>Key Semantic Layout Elements:</h4>
+            <ul class="list-disc list-inside mb-4">
+                <li><code>&lt;header&gt;</code>: Container for introductory content or navigational aids. Often contains logo, main heading, nav. Can be used inside `body`, `article`, `section`.</li>
+                <li><code>&lt;nav&gt;</code>: Contains major navigation links (main menu, breadcrumbs, table of contents).</li>
+                <li><code>&lt;main&gt;</code>: Specifies the main, dominant content of the document. **Should only be one <code>&lt;main&gt;</code> element** per page.</li>
+                <li><code>&lt;article&gt;</code>: Represents a complete, self-contained composition (e.g., blog post, news item, forum comment). Should make sense on its own. Can be nested.</li>
+                <li><code>&lt;section&gt;</code>: Represents a thematic grouping of content, typically with a heading (<code>&lt;h2&gt;</code>-<code>&lt;h6&gt;</code>). Use it to break up `article` or `main` content logically. Don't use it as a generic wrapper if `div` is more appropriate.</li>
+                <li><code>&lt;aside&gt;</code>: Content tangentially related to the main content around it (e.g., sidebar, pull quotes, related links, author bio).</li>
+                <li><code>&lt;footer&gt;</code>: Represents a footer for its nearest sectioning content or root (`body`, `article`, `section`). Typically contains authorship info, copyright, related links.</li>
+            </ul>
+            <h4>Other Semantic Elements:</h4>
+             <ul class="list-disc list-inside mb-4">
+                 <li><code>&lt;figure&gt;</code> & <code>&lt;figcaption&gt;</code>: For self-contained content (like images, diagrams, code) referenced from the main flow, optionally with a caption.</li>
+                 <li><code>&lt;time&gt;</code>, <code>&lt;address&gt;</code>, <code>&lt;mark&gt;</code>, etc.</li>
+            </ul>
+            <p><strong>Rule of Thumb:</strong> Before using a <code>&lt;div&gt;</code> or <code>&lt;span&gt;</code>, ask yourself: "Is there a more specific HTML tag that accurately describes this content's purpose?" If yes, use it!</p>
+            <div class="code-block-wrapper">
+                <pre><code class="language-html">
+&lt;<span class="html-tag">body</span>&gt;
+  &lt;<span class="html-tag">header</span>&gt;
+    &lt;<span class="html-tag">h1</span>&gt;My Blog&lt;/<span class="html-tag">h1</span>&gt;
+    &lt;<span class="html-tag">nav</span>&gt; &lt;!-- Main Navigation --&gt;
+      &lt;<span class="html-tag">ul</span>&gt;&lt;<span class="html-tag">li</span>&gt;&lt;<span class="html-tag">a</span> <span class="html-attr">href</span>="/"&gt;Home&lt;/<span class="html-tag">a</span>&gt;&lt;/<span class="html-tag">li</span>&gt; &lt;!-- ... --&gt; &lt;/<span class="html-tag">ul</span>&gt;
+    &lt;/<span class="html-tag">nav</span>&gt;
+  &lt;/<span class="html-tag">header</span>&gt;
+
+  &lt;<span class="html-tag">main</span>&gt; &lt;!-- Main content area --&gt;
+    &lt;<span class="html-tag">article</span>&gt; &lt;!-- A single blog post --&gt;
+      &lt;<span class="html-tag">h2</span>&gt;Learning Semantic HTML&lt;/<span class="html-tag">h2</span>&gt;
+      &lt;<span class="html-tag">p</span>&gt;It's important because...&lt;/<span class="html-tag">p</span>&gt;
+      &lt;<span class="html-tag">section</span>&gt;
+        &lt;<span class="html-tag">h3</span>&gt;Benefits&lt;/<span class="html-tag">h3</span>&gt;
+        &lt;<span class="html-tag">ul</span>&gt;&lt;!-- ... --&gt;&lt;/<span class="html-tag">ul</span>&gt;
+      &lt;/<span class="html-tag">section</span>&gt;
+      &lt;<span class="html-tag">footer</span>&gt; &lt;!-- Footer for the article --&gt;
+        &lt;<span class="html-tag">p</span>&gt;Posted on &lt;<span class="html-tag">time</span> <span class="html-attr">datetime</span>="<span class="html-value">2025-04-27</span>"&gt;April 27, 2025&lt;/<span class="html-tag">time</span>&gt;&lt;/<span class="html-tag">p</span>&gt;
+      &lt;/<span class="html-tag">footer</span>&gt;
+    &lt;/<span class="html-tag">article</span>&gt;
+    <span class="html-comment">&lt;!-- Maybe another article here --&gt;</span>
+  &lt;/<span class="html-tag">main</span>&gt;
+
+  &lt;<span class="html-tag">aside</span>&gt; &lt;!-- Sidebar content --&gt;
+    &lt;<span class="html-tag">h3</span>&gt;Related Links&lt;/<span class="html-tag">h3</span>&gt;
+    &lt;<span class="html-tag">ul</span>&gt;&lt;!-- ... --&gt;&lt;/<span class="html-tag">ul</span>&gt;
+  &lt;/<span class="html-tag">aside</span>&gt;
+
+  &lt;<span class="html-tag">footer</span>&gt; &lt;!-- Main page footer --&gt;
+    &lt;<span class="html-tag">p</span>&gt;&copy; 2025 My Blog. All rights reserved.&lt;/<span class="html-tag">p</span>&gt;
+  &lt;/<span class="html-tag">footer</span>&gt;
+&lt;/<span class="html-tag">body</span>&gt;
                 </code></pre>
                  <button class="copy-button" aria-label="Copy code to clipboard">Copy</button>
             </div>
+
+            <h3>6. Tables 📊</h3>
+            <p>Use tables for displaying **tabular data** (data best represented in rows and columns), NOT for page layout (use CSS Grid/Flexbox for layout).</p>
+            <ul class="list-disc list-inside mb-4">
+                <li><code>&lt;table&gt;</code>: The main container.</li>
+                <li><code>&lt;caption&gt;</code>: Table title/description (important for context).</li>
+                <li><code>&lt;thead&gt;</code>: Groups header rows (<code>&lt;tr&gt;</code> with <code>&lt;th&gt;</code> cells).</li>
+                <li><code>&lt;tbody&gt;</code>: Groups main data rows (<code>&lt;tr&gt;</code> with <code>&lt;td&gt;</code> cells).</li>
+                <li><code>&lt;tfoot&gt;</code>: Groups footer rows (optional, e.g., totals).</li>
+                <li><code>&lt;tr&gt;</code>: Table Row.</li>
+                <li><code>&lt;th&gt;</code>: Table Header cell. Use <code>scope="col"</code> or <code>scope="row"</code> attribute for accessibility.</li>
+                <li><code>&lt;td&gt;</code>: Table Data cell.</li>
+                <li><code>colspan</code> / <code>rowspan</code> attributes let cells span multiple columns/rows.</li>
+            </ul>
+            <div class="code-block-wrapper">
+                <pre><code class="language-html">
+&lt;<span class="html-tag">table</span>&gt;
+  &lt;<span class="html-tag">caption</span>&gt;User Data Summary&lt;/<span class="html-tag">caption</span>&gt;
+  &lt;<span class="html-tag">thead</span>&gt;
+    &lt;<span class="html-tag">tr</span>&gt;
+      &lt;<span class="html-tag">th</span> <span class="html-attr">scope</span>="<span class="html-value">col</span>"&gt;ID&lt;/<span class="html-tag">th</span>&gt;
+      &lt;<span class="html-tag">th</span> <span class="html-attr">scope</span>="<span class="html-value">col</span>"&gt;Name&lt;/<span class="html-tag">th</span>&gt;
+      &lt;<span class="html-tag">th</span> <span class="html-attr">scope</span>="<span class="html-value">col</span>"&gt;Role&lt;/<span class="html-tag">th</span>&gt;
+    &lt;/<span class="html-tag">tr</span>&gt;
+  &lt;/<span class="html-tag">thead</span>&gt;
+  &lt;<span class="html-tag">tbody</span>&gt;
+    &lt;<span class="html-tag">tr</span>&gt;
+      &lt;<span class="html-tag">td</span>&gt;1&lt;/<span class="html-tag">td</span>&gt;
+      &lt;<span class="html-tag">td</span>&gt;Alice&lt;/<span class="html-tag">td</span>&gt;
+      &lt;<span class="html-tag">td</span>&gt;Admin&lt;/<span class="html-tag">td</span>&gt;
+    &lt;/<span class="html-tag">tr</span>&gt;
+    &lt;<span class="html-tag">tr</span>&gt;
+      &lt;<span class="html-tag">td</span>&gt;2&lt;/<span class="html-tag">td</span>&gt;
+      &lt;<span class="html-tag">td</span>&gt;Bob&lt;/<span class="html-tag">td</span>&gt;
+      &lt;<span class="html-tag">td</span>&gt;User&lt;/<span class="html-tag">td</span>&gt;
+    &lt;/<span class="html-tag">tr</span>&gt;
+  &lt;/<span class="html-tag">tbody</span>&gt;
+&lt;/<span class="html-tag">table</span>&gt;
+                </code></pre>
+                 <button class="copy-button" aria-label="Copy code to clipboard">Copy</button>
+            </div>
+
+            <h3>7. Forms 📝</h3>
+            <p>Allow users to input and submit data.</p>
+            <ul class="list-disc list-inside mb-4">
+                <li><code>&lt;form action="url" method="post/get"&gt;...&lt;/form&gt;</code>: The container. `action` is where data goes, `method` is how.</li>
+                <li><code>&lt;label for="id"&gt;</code>: Connects text label to input for accessibility. `for` matches input `id`.</li>
+                <li><code>&lt;input type="..."&gt;</code>: Versatile input field. Important types: `text`, `email`, `password`, `number`, `date`, `checkbox`, `radio`, `file`, `submit`, `reset`, `button`, `hidden`, `search`, `tel`, `url`, `range`, `color`.</li>
+                <li><code>&lt;textarea&gt;</code>: Multi-line text input.</li>
+                <li><code>&lt;select&gt;</code> with <code>&lt;option&gt;</code> tags: Dropdown list.</li>
+                <li><code>&lt;button type="submit/reset/button"&gt;</code>: Clickable button.</li>
+                <li><code>&lt;fieldset&gt;</code> & <code>&lt;legend&gt;</code>: Group related controls visually and semantically.</li>
+                <li>Key Input Attributes: `name` (essential for server-side processing), `id` (for label `for`), `value`, `placeholder`, `required`, `disabled`, `readonly`, `checked` (for checkbox/radio), `min`/`max`/`step` (for numbers/ranges), `pattern` (regex validation).</li>
+            </ul>
+             <div class="code-block-wrapper">
+                <pre><code class="language-html">
+&lt;<span class="html-tag">form</span> <span class="html-attr">action</span>="<span class="html-value">/signup</span>" <span class="html-attr">method</span>="<span class="html-value">post</span>"&gt;
+  &lt;<span class="html-tag">fieldset</span>&gt;
+    &lt;<span class="html-tag">legend</span>&gt;Create Account&lt;/<span class="html-tag">legend</span>&gt;
+    &lt;<span class="html-tag">div</span> <span class="html-attr">class</span>="<span class="html-value">form-group</span>"&gt;
+      &lt;<span class="html-tag">label</span> <span class="html-attr">for</span>="<span class="html-value">email-input</span>"&gt;Email:&lt;/<span class="html-tag">label</span>&gt;
+      &lt;<span class="html-tag">input</span> <span class="html-attr">type</span>="<span class="html-value">email</span>" <span class="html-attr">id</span>="<span class="html-value">email-input</span>" <span class="html-attr">name</span>="<span class="html-value">user_email</span>" <span class="html-attr">required</span> <span class="html-attr">placeholder</span>="<span class="html-value">you@example.com</span>"&gt;
+    &lt;/<span class="html-tag">div</span>&gt;
+    &lt;<span class="html-tag">div</span> <span class="html-attr">class</span>="<span class="html-value">form-group</span>"&gt;
+      &lt;<span class="html-tag">label</span> <span class="html-attr">for</span>="<span class="html-value">password-input</span>"&gt;Password:&lt;/<span class="html-tag">label</span>&gt;
+      &lt;<span class="html-tag">input</span> <span class="html-attr">type</span>="<span class="html-value">password</span>" <span class="html-attr">id</span>="<span class="html-value">password-input</span>" <span class="html-attr">name</span>="<span class="html-value">user_password</span>" <span class="html-attr">required</span> <span class="html-attr">minlength</span>="<span class="html-value">8</span>"&gt;
+    &lt;/<span class="html-tag">div</span>&gt;
+     &lt;<span class="html-tag">div</span> <span class="html-attr">class</span>="<span class="html-value">form-group</span>"&gt;
+        &lt;<span class="html-tag">label</span> <span class="html-attr">for</span>="<span class="html-value">account-type</span>"&gt;Account Type:&lt;/<span class="html-tag">label</span>&gt;
+        &lt;<span class="html-tag">select</span> <span class="html-attr">name</span>="<span class="html-value">account_type</span>" <span class="html-attr">id</span>="<span class="html-value">account-type</span>"&gt;
+            &lt;<span class="html-tag">option</span> <span class="html-attr">value</span>="<span class="html-value">free</span>"&gt;Free Tier&lt;/<span class="html-tag">option</span>&gt;
+            &lt;<span class="html-tag">option</span> <span class="html-attr">value</span>="<span class="html-value">premium</span>"&gt;Premium Tier ($)&lt;/<span class="html-tag">option</span>&gt;
+        &lt;/<span class="html-tag">select</span>&gt;
+     &lt;/<span class="html-tag">div</span>&gt;
+     &lt;<span class="html-tag">div</span> <span class="html-attr">class</span>="<span class="html-value">form-group</span>"&gt;
+         &lt;<span class="html-tag">input</span> <span class="html-attr">type</span>="<span class="html-value">checkbox</span>" <span class="html-attr">id</span>="<span class="html-value">terms</span>" <span class="html-attr">name</span>="<span class="html-value">agree_terms</span>" <span class="html-attr">required</span>&gt;
+         &lt;<span class="html-tag">label</span> <span class="html-attr">for</span>="<span class="html-value">terms</span>"&gt;I agree to the terms and conditions&lt;/<span class="html-tag">label</span>&gt;
+     &lt;/<span class="html-tag">div</span>&gt;
+    &lt;<span class="html-tag">button</span> <span class="html-attr">type</span>="<span class="html-value">submit</span>"&gt;Sign Up 🎉&lt;/<span class="html-tag">button</span>&gt;
+  &lt;/<span class="html-tag">fieldset</span>&gt;
+&lt;/<span class="html-tag">form</span>&gt;
+                </code></pre>
+                 <button class="copy-button" aria-label="Copy code to clipboard">Copy</button>
+            </div>
+
+            <h3>8. More Media Elements 🎬🔊</h3>
+            <ul class="list-disc list-inside mb-4">
+                <li><code>&lt;audio controls src="..."&gt;</code>: Embed audio files. `controls` adds default player UI.</li>
+                <li><code>&lt;video controls width="..." height="..." src="..." poster="..."&gt;</code>: Embed video files. `poster` shows an image before loading. Can include <code>&lt;source&gt;</code> tags for multiple formats.</li>
+                <li><code>&lt;iframe src="..."&gt;</code>: Embed another HTML page (e.g., YouTube video, Google Map). Use with caution (security/performance).</li>
+                <li><code>&lt;picture&gt;</code>: Art direction for images. Provide different image sources based on screen size, resolution, or format support using <code>&lt;source media="..." srcset="..."&gt;</code> and a fallback <code>&lt;img&gt;</code>.</li>
+                <li><code>&lt;svg&gt;</code>: Embed Scalable Vector Graphics directly in HTML for sharp icons/illustrations.</li>
+            </ul>
+
+            <h3>9. Accessibility (a11y) & Entities</h3>
+            <h4>Accessibility Basics ✅</h4>
+            <p>Making your site usable by everyone, including those with disabilities, is crucial.</p>
+            <ul class="list-disc list-inside mb-4">
+                <li>**Use Semantic HTML:** As discussed, this is foundational.</li>
+                <li>**Provide Text Alternatives:** Use meaningful `alt` text for images. Provide transcripts/captions for audio/video.</li>
+                <li>**Use Labels for Forms:** Connect <code>&lt;label&gt;</code> to inputs using `for`/`id`.</li>
+                <li>**Ensure Keyboard Navigability:** All interactive elements should be reachable and operable using the keyboard alone (check `tabindex`).</li>
+                <li>**Sufficient Color Contrast:** Text should be easily readable against its background.</li>
+                <li>**(Intro to) ARIA:** Accessible Rich Internet Applications attributes (like `role`, `aria-label`, `aria-hidden`) can enhance accessibility for complex widgets, but use native HTML semantics first whenever possible.</li>
+            </ul>
+            <h4>HTML Entities ™️©️<</h4>
+            <p>Used to display reserved characters (like <code>&lt;</code> or <code>&gt;</code>) or characters not easily typed (like <code>©</code>).</p>
+            <ul class="list-disc list-inside mb-4">
+                <li>Common ones: <code>&amp;lt;</code> (<), <code>&amp;gt;</code> (>), <code>&amp;amp;</code> (&), <code>&amp;quot;</code> ("), <code>&amp;nbsp;</code> (non-breaking space), <code>&amp;copy;</code> (©), <code>&amp;reg;</code> (®).</li>
+            </ul>
+
+            <h3>10. Comments & Best Practices 💯</h3>
+            <h4>HTML Comments</h4>
+            <p>Ignored by the browser, useful for notes to developers.</p>
+            <div class="code-block-wrapper">
+                <pre><code class="language-html">
+<span class="html-comment">&lt;!-- This is an HTML comment. It won't be displayed. --&gt;</span>
+&lt;<span class="html-tag">p</span>&gt;This text will be displayed.&lt;/<span class="html-tag">p</span>&gt;
+<span class="html-comment">&lt;!-- TODO: Add more content here later --&gt;</span>
+                </code></pre>
+                 <button class="copy-button" aria-label="Copy code to clipboard">Copy</button>
+            </div>
+            <h4>Best Practices</h4>
+             <ul class="list-disc list-inside mb-4">
+                 <li>**Validate Your HTML:** Use tools like the W3C Validator to check for errors.</li>
+                 <li>**Use Semantic HTML:** Always prefer meaningful tags over generic `div`s/`span`s.</li>
+                 <li>**Prioritize Accessibility:** Build with everyone in mind from the start.</li>
+                 <li>**Keep it Clean:** Use consistent indentation and formatting.</li>
+                 <li>**Separate Concerns:** HTML for structure, CSS for presentation, JS for behavior. Avoid large amounts of inline styles or scripts.</li>
+                 <li>**Comment Appropriately:** Explain complex sections or temporary code.</li>
+             </ul>
+
+             <p class="mt-6 font-semibold">Congrats! 🎉 You've covered the essentials (and more) of HTML. Keep practicing by building things and inspecting websites you like!</p>
         </section>
 
     </main>
