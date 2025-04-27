@@ -16,7 +16,19 @@
 
     <header class="sticky-header">
         <div class="container header-container">
-            <h1 class="logo">Discite</h1>
+             <div class="logo">
+              <a href="index.html" aria-label="Discite Homepage"> <svg width="150" height="50" viewBox="0 0 150 50" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="glassGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style="stop-color:rgba(255, 255, 255, 0.3); stop-opacity:1" />
+                      <stop offset="100%" style="stop-color:rgba(255, 255, 255, 0.1); stop-opacity:1" />
+                    </linearGradient>
+                  </defs>
+                  <rect x="1" y="1" width="148" height="48" rx="15" ry="15" fill="url(#glassGradient)" stroke="rgba(255, 255, 255, 0.4)" stroke-width="1"/>
+                  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="'Inter', sans-serif" font-size="20" font-weight="700" fill="#ffffff">Discite</text>
+                </svg>
+              </a>
+            </div>
             <nav class="main-nav" aria-label="Main navigation">
                 <a href="index.html" class="nav-link">Introduction</a>
                 <a href="html.html" class="nav-link">HTML</a>
@@ -306,7 +318,7 @@
                  <li>**Lint Your CSS:** Use tools like Stylelint to catch errors and enforce consistency.</li>
              </ul>
 
-             <div class="quiz-container mt-10 pt-6 border-t border-purple-200 border-opacity-50" id="css-quiz">
+            <div class="quiz-container mt-10 pt-6 border-t border-purple-200 border-opacity-50" id="css-quiz">
                 <h3 class="text-xl font-semibold mb-4 text-purple-800">Check Your CSS Knowledge! 🤔</h3>
                 <form class="quiz-form space-y-6">
                     <fieldset class="quiz-question p-4 border border-purple-300 border-opacity-50 rounded-lg squircle-sm">
