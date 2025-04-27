@@ -28,9 +28,8 @@
     </header>
 
     <main class="container main-content">
-
-        <section id="css" class="content-section">
-             <h2 class="text-3xl md:text-4xl font-bold section-header">
+        <section id="css" class="content-section" aria-labelledby="css-main-heading">
+             <h2 id="css-main-heading" class="text-3xl md:text-4xl font-bold section-header">
                 CSS: Styling the Web 🎨 (Beginner to Winner!)
             </h2>
             <p class="mb-4">Alright, let's make things look good! ✨ CSS (Cascading Style Sheets) is the language used to describe the presentation of a document written in HTML. It handles the layout, colors, fonts, spacing, responsive adjustments, and animations – everything that makes a site visually appealing and user-friendly.</p>
@@ -307,9 +306,42 @@
                  <li>**Lint Your CSS:** Use tools like Stylelint to catch errors and enforce consistency.</li>
              </ul>
 
-             <p class="mt-6 font-semibold">CSS is powerful! Experiment, use browser dev tools to inspect styles, and practice applying these concepts to make your HTML shine. ✨</p>
-        </section>
+             <div class="quiz-container mt-10 pt-6 border-t border-purple-200 border-opacity-50" id="css-quiz">
+                <h3 class="text-xl font-semibold mb-4 text-purple-800">Check Your CSS Knowledge! 🤔</h3>
+                <form class="quiz-form space-y-6">
+                    <fieldset class="quiz-question p-4 border border-purple-300 border-opacity-50 rounded-lg squircle-sm">
+                        <legend class="text-lg font-medium mb-2 px-1">1. Which CSS property controls the text color?</legend>
+                        <div class="space-y-2">
+                            <div><label><input type="radio" name="q1" value="a"> background-color</label></div>
+                            <div><label><input type="radio" name="q1" value="b"> font-style</label></div>
+                            <div><label><input type="radio" name="q1" value="c"> color</label></div>
+                        </div>
+                    </fieldset>
 
+                    <fieldset class="quiz-question p-4 border border-purple-300 border-opacity-50 rounded-lg squircle-sm">
+                        <legend class="text-lg font-medium mb-2 px-1">2. What does the 'C' in CSS stand for?</legend>
+                         <div class="space-y-2">
+                            <div><label><input type="radio" name="q2" value="a"> Cascading</label></div>
+                            <div><label><input type="radio" name="q2" value="b"> Creative</label></div>
+                            <div><label><input type="radio" name="q2" value="c"> Computer</label></div>
+                        </div>
+                    </fieldset>
+
+                     <fieldset class="quiz-question p-4 border border-purple-300 border-opacity-50 rounded-lg squircle-sm">
+                        <legend class="text-lg font-medium mb-2 px-1">3. Which selector targets an element with `id="logo"`?</legend>
+                         <div class="space-y-2">
+                            <div><label><input type="radio" name="q3" value="a"> .logo</label></div>
+                            <div><label><input type="radio" name="q3" value="b"> #logo</label></div>
+                            <div><label><input type="radio" name="q3" value="c"> logo</label></div>
+                        </div>
+                    </fieldset>
+
+                    <button type="submit" class="cta-button quiz-submit-button">Check Answers ✅</button>
+                </form>
+                <div class="quiz-results mt-4 p-4 rounded-lg squircle-sm" aria-live="polite"></div>
+            </div>
+            <p class="mt-6 font-semibold">CSS is powerful! Experiment, use browser dev tools to inspect styles, and practice applying these concepts to make your HTML shine. ✨</p>
+        </section>
     </main>
 
     <footer class="main-footer">
