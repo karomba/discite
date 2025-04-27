@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discite: CSS Fundamentals 🎨</title>
+    <title>Discite: CSS Fundamentals 🎨 (Comprehensive)</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,111 +31,283 @@
 
         <section id="css" class="content-section">
              <h2 class="text-3xl md:text-4xl font-bold section-header">
-                CSS: Styling the Web 🎨
+                CSS: Styling the Web 🎨 (Beginner to Winner!)
             </h2>
-            <p class="mb-4">CSS (Cascading Style Sheets) is how you make your HTML look good. It controls colors, fonts, layout, spacing – basically the whole vibe ✨.</p>
+            <p class="mb-4">Alright, let's make things look good! ✨ CSS (Cascading Style Sheets) is the language used to describe the presentation of a document written in HTML. It handles the layout, colors, fonts, spacing, responsive adjustments, and animations – everything that makes a site visually appealing and user-friendly.</p>
+            <p class="mb-4">We'll cover everything from basic syntax and selectors to layout models like Flexbox and Grid, and responsive design principles.</p>
 
-            <h3>Including CSS 🔌</h3>
-            <p class="mb-2">Three ways to add styles:</p>
-            <ul class="list-decimal list-inside mb-4">
-                <li><strong>External Stylesheet (Best! 👍):</strong> Link a <code>.css</code> file in <code>&lt;head&gt;</code>. Keeps things tidy.</li>
-                <li><strong>Internal Stylesheet:</strong> Use <code>&lt;style&gt;</code> tags in <code>&lt;head&gt;</code>. Okay for small stuff.</li>
-                <li><strong>Inline Styles:</strong> <code>style="..."</code> attribute on elements (Avoid if possible 🙅‍♀️).</li>
-            </ul>
-
-            <h3>CSS Rule Structure 📜</h3>
-            <p class="mb-2">It's like giving instructions:</p>
+            <h3>1. Syntax & Inclusion Methods 🔌</h3>
+            <h4>Basic Rule Structure 📜</h4>
+            <p>A CSS ruleset consists of a selector and a declaration block.</p>
              <div class="code-block-wrapper">
                 <pre><code class="language-css">
 <span class="css-comment">/* Target something { Tell it what to do; } */</span>
-<span class="css-selector">p</span> { <span class="css-comment">/* Select all paragraphs */</span>
-  <span class="css-property">color</span>: <span class="css-value">purple</span>; <span class="css-comment">/* Make text purple */</span>
-  <span class="css-property">font-size</span>: <span class="css-value">1.1<span class="css-unit">rem</span></span>; <span class="css-comment">/* Make font slightly bigger */</span>
+<span class="css-selector">selector</span> { <span class="css-comment">/* e.g., h1, .my-class, #my-id */</span>
+  <span class="css-property">property</span>: <span class="css-value">value</span>; <span class="css-comment">/* Declaration (e.g., color: blue;) */</span>
+  <span class="css-property">another-property</span>: <span class="css-value">another-value</span>;
 }
                 </code></pre>
                 <button class="copy-button" aria-label="Copy code to clipboard">Copy</button>
             </div>
-
-            <h3>Selectors 👉</h3>
-            <p class="mb-2">How you target HTML elements:</p>
-             <ul class="list-disc list-inside mb-4">
-                <li>Type (<code>h1</code>), Class (<code>.cool-button</code>), ID (<code>#main-logo</code> - unique!)</li>
-                <li>Attribute (<code>input[type="checkbox"]</code>)</li>
-                <li>Pseudo-classes (<code>:hover</code>, <code>:focus</code>, <code>:nth-child(2)</code> - the second kid)</li>
-                <li>Pseudo-elements (<code>::before</code>, <code>::after</code> - add little extra bits)</li>
-                <li>Combinators (<code>article p</code> - paragraphs inside articles)</li>
+            <h4>Ways to Include CSS</h4>
+            <ul class="list-decimal list-inside mb-4">
+                <li><strong>External Stylesheet (Strongly Recommended ✅):</strong> Create a <code>.css</code> file (e.g., <code>style.css</code>) and link it within the <code>&lt;head&gt;</code> of your HTML: <br><code>&lt;link rel="stylesheet" href="css/style.css"&gt;</code>. This keeps styles separate, organized, and allows browser caching.</li>
+                <li><strong>Internal Stylesheet:</strong> Place CSS rules within <code>&lt;style&gt;</code> tags inside the HTML <code>&lt;head&gt;</code>. Useful for single pages or quick demos, but less maintainable for larger sites.</li>
+                <li><strong>Inline Styles:</strong> Apply styles directly using the <code>style</code> attribute on an HTML element: <br><code>&lt;p style="color: red; margin-top: 10px;"&gt;...&lt;/p&gt;</code>. This has the highest specificity but makes styles hard to manage and override. **Avoid generally**.</li>
             </ul>
 
-            <h3>The Cascade, Specificity, and Inheritance 🤔</h3>
+            <h3>2. Selectors: Targeting Elements 👉</h3>
+            <p>Selectors are patterns that select the HTML elements you want to style.</p>
              <ul class="list-disc list-inside mb-4">
-                <li><strong>Cascade:</strong> Rules flow down, later rules or more specific rules win.</li>
-                <li><strong>Specificity:</strong> How specific a selector is (ID > Class > Type). More specific = more power 💪.</li>
-                <li><strong>Inheritance:</strong> Some styles (like font, color) flow down to children automatically.</li>
-                <li><strong><code>!important</code>:</strong> Overrides almost everything (use carefully! 🚨).</li>
+                <li><strong>Type/Element Selector:</strong> Selects all elements of a given type. Ex: <code>p</code>, <code>h2</code>, <code>div</code>.</li>
+                <li><strong>Class Selector:</strong> Selects elements with a specific `class` attribute. Starts with a dot (<code>.</code>). Ex: <code>.button</code>, <code>.card-header</code>. (Reusable!)</li>
+                <li><strong>ID Selector:</strong> Selects the *single* element with a specific `id` attribute. Starts with a hash (<code>#</code>). Ex: <code>#main-logo</code>, <code>#contact-form</code>. (Unique per page!)</li>
+                <li><strong>Attribute Selector:</strong> Selects elements based on presence or value of attributes. Ex: <code>[target="_blank"]</code>, <code>input[type="email"]</code>, <code>[data-active]</code>.</li>
+                <li><strong>Pseudo-classes:</strong> Select elements based on state or relation. Start with a colon (<code>:</code>). Ex: <code>:hover</code> (mouse over), <code>:focus</code> (element selected), <code>:active</code> (element being clicked), <code>:nth-child(n)</code> (select specific child), <code>:first-child</code>, <code>:last-child</code>, <code>:required</code>, <code>:valid</code>/<code>:invalid</code> (form states), <code>:not(selector)</code>.</li>
+                <li><strong>Pseudo-elements:</strong> Style specific parts of an element. Start with double colon (<code>::</code>) (single colon often works for older ones). Ex: <code>::before</code> / <code>::after</code> (insert content), <code>::first-line</code>, <code>::first-letter</code>, <code>::selection</code> (selected text), <code>::placeholder</code>.</li>
+                <li><strong>Combinators:</strong> Combine selectors based on relationship:
+                    <ul class="list-circle list-inside ml-4 mt-1">
+                        <li>Descendant (space): <code>article p</code> (any <code>p</code> inside <code>article</code>).</li>
+                        <li>Child (<code>&gt;</code>): <code>ul > li</code> (only direct <code>li</code> children of <code>ul</code>).</li>
+                        <li>Adjacent Sibling (<code>+</code>): <code>h2 + p</code> (the first <code>p</code> right after an <code>h2</code>).</li>
+                        <li>General Sibling (<code>~</code>): <code>h2 ~ p</code> (all <code>p</code> siblings after an <code>h2</code>).</li>
+                    </ul>
+                </li>
+                 <li><strong>Grouping Selector (<code>,</code>):</strong> Apply same styles to multiple selectors. Ex: <code>h1, h2, h3 { font-weight: bold; }</code></li>
+                 <li><strong>Universal Selector (<code>*</code>):</strong> Selects all elements. Low specificity. Use carefully (e.g., for resets like `* { box-sizing: border-box; }`).</li>
             </ul>
 
-            <h3>The Box Model 📦</h3>
-            <p class="mb-2">Every element is a box! It has:</p>
+            <h3>3. The Cascade, Specificity, and Inheritance 🤔</h3>
+            <p>Understanding how browsers decide which CSS rules apply when conflicts arise.</p>
+             <ul class="list-disc list-inside mb-4">
+                <li><strong>The Cascade:</strong> The browser follows these steps to resolve conflicts:
+                    <ol class="list-decimal list-inside ml-4 mt-1">
+                        <li><strong>Origin & Importance:</strong> Stylesheets have different origins (browser defaults, user styles, author styles). <code>!important</code> declarations override normal ones within their origin. The general order is: Browser Defaults < User Normal < Author Normal < Author <code>!important</code> < User <code>!important</code>. (You mainly control Author styles).</li>
+                        <li><strong>Specificity:</strong> If origin/importance are equal, more specific selectors win. Specificity is calculated (roughly): Inline styles (highest) > IDs > Classes/Attributes/Pseudo-classes > Elements/Pseudo-elements.</li>
+                        <li><strong>Source Order:</strong> If specificity is also equal, the rule defined *last* in the CSS wins.</li>
+                    </ol>
+                </li>
+                <li><strong>Specificity Calculation (Example):</strong> A selector like <code>#nav .link:hover</code> (ID + Class + Pseudo-class) is more specific than <code>nav a</code> (Type + Type). Tools exist online to calculate specificity scores.</li>
+                <li><strong>Inheritance:</strong> Some properties (like <code>color</code>, <code>font-family</code>, <code>font-size</code>, <code>line-height</code>) are naturally passed down (inherited) from parent elements to their children. Others (like <code>padding</code>, <code>margin</code>, <code>border</code>, <code>background</code>) are not. Use the <code>inherit</code> keyword to explicitly inherit a non-inherited property or <code>initial</code>/<code>unset</code> to reset.</li>
+            </ul>
+
+            <h3>4. The Box Model 📦</h3>
+            <p>Every HTML element rendered in the browser is treated as a rectangular box. Understanding its parts is key to layout.</p>
             <img src="https://placehold.co/450x200/c4b5fd/1e1b4b?text=Margin+|+Border+|+Padding+|+Content" alt="Diagram of the CSS Box Model" class="box-model-diagram" loading="lazy">
             <ul class="list-disc list-inside mb-4">
-               <li>Content: The actual stuff.</li>
-               <li>Padding: Space inside the border.</li>
-               <li>Border: The line around the padding.</li>
-               <li>Margin: Space outside the border (pushes other boxes away).</li>
+               <li><strong>Content:</strong> The area where text and images appear. Sized by <code>width</code> and <code>height</code>.</li>
+               <li><strong>Padding:</strong> Clears an area around the content, *inside* the border. Transparent. Background color applies here. Set with <code>padding</code> or <code>padding-*</code>.</li>
+               <li><strong>Border:</strong> A line drawn around the padding and content. Set with <code>border</code> or <code>border-*</code> (width, style, color).</li>
+               <li><strong>Margin:</strong> Clears an area *outside* the border. Transparent. Pushes other elements away. Set with <code>margin</code> or <code>margin-*</code>. Vertical margins can collapse.</li>
             </ul>
-            <h4 class="mt-4"><code>box-sizing: border-box;</code></h4>
-            <p class="mb-2">Pro tip: Use this so width/height includes padding & border. Makes life easier!</p>
+            <h4 class="mt-4">Crucial: <code>box-sizing</code> Property</h4>
+            <p class="mb-2">Set <code>box-sizing: border-box;</code> globally. This makes the element's `width` and `height` properties include the padding and border, not just the content. It simplifies layout math significantly!</p>
              <div class="code-block-wrapper">
                 <pre><code class="language-css">
-*, *::before, *::after { box-sizing: border-box; }
-                </code></pre>
-                <button class="copy-button" aria-label="Copy code to clipboard">Copy</button>
-            </div>
+<span class="css-comment">/* Apply to all elements */</span>
+<span class="css-selector">*,
+*::before,
+*::after</span> {
+  <span class="css-property">box-sizing</span>: <span class="css-value">border-box</span>;
+}
 
-            <h3>Layout: Flexbox and Grid 📐</h3>
-            <h4>Flexbox 💪</h4>
-            <p class="mb-2">Great for arranging items in a line (row or column).</p>
-             <ul class="list-disc list-inside mb-4">
-                <li>Use <code>display: flex;</code> on the container.</li>
-                <li>Align items with <code>justify-content</code> and <code>align-items</code>.</li>
-            </ul>
-             <h4>CSS Grid ▦</h4>
-            <p class="mb-2">Awesome for 2D layouts (rows AND columns).</p>
-             <ul class="list-disc list-inside mb-4">
-                 <li>Use <code>display: grid;</code> on the container.</li>
-                 <li>Define columns/rows with <code>grid-template-columns/rows</code>.</li>
-            </ul>
-
-            <h3>Units 📏</h3>
-             <ul class="list-disc list-inside mb-4">
-                <li>Absolute: <code>px</code> (pixels).</li>
-                <li>Relative: <code>%</code>, <code>em</code>, <code>rem</code> (use `rem` for fonts!), <code>vw</code>/<code>vh</code> (viewport size).</li>
-            </ul>
-
-            <h3>Common Properties (Just a few!) 👇</h3>
-             <ul class="list-disc list-inside mb-4">
-                <li>Text: <code>font-family</code>, <code>font-size</code>, <code>color</code>, <code>text-align</code>.</li>
-                <li>Backgrounds: <code>background-color</code>, <code>background-image</code>.</li>
-                <li>Spacing: <code>padding</code>, <code>margin</code>.</li>
-                <li>Size: <code>width</code>, <code>height</code>.</li>
-                <li>Borders: <code>border</code>, <code>border-radius</code> (for rounded corners!).</li>
-                <li>Layout: <code>display</code> (flex, grid, block, inline), <code>position</code>.</li>
-            </ul>
-
-            <h3>Responsive Design & Media Queries 📱💻</h3>
-            <p class="mb-2">Make your site look good everywhere! Use <code>@media</code> to apply styles based on screen size.</p>
-            <div class="code-block-wrapper">
-                <pre><code class="language-css">
-<span class="css-comment">/* Default (Mobile) */</span>
-<span class="css-selector">.button</span> { <span class="css-property">width</span>: <span class="css-value">100%</span>; }
-
-<span class="css-comment">/* Tablet size and up */</span>
-<span class="css-selector">@media</span> (<span class="css-property">min-width</span>: <span class="css-value">768<span class="css-unit">px</span></span>) {
-  <span class="css-selector">.button</span> { <span class="css-property">width</span>: <span class="css-value">auto</span>; } <span class="css-comment">/* Becomes normal size */</span>
+<span class="css-selector">.box</span> {
+  <span class="css-property">width</span>: <span class="css-value">200<span class="css-unit">px</span></span>; <span class="css-comment">/* Total width is 200px */</span>
+  <span class="css-property">padding</span>: <span class="css-value">20<span class="css-unit">px</span></span>;
+  <span class="css-property">border</span>: <span class="css-value">5<span class="css-unit">px</span> solid red</span>;
+  <span class="css-property">margin</span>: <span class="css-value">10<span class="css-unit">px</span></span>;
+  <span class="css-comment">/* Content area width = 200 - (20*2) - (5*2) = 150px */</span>
 }
                 </code></pre>
                 <button class="copy-button" aria-label="Copy code to clipboard">Copy</button>
             </div>
+
+            <h3>5. Units 📏</h3>
+             <ul class="list-disc list-inside mb-4">
+                <li><strong>Absolute:</strong> <code>px</code> (pixels). Fixed size.</li>
+                <li><strong>Relative (Font):</strong>
+                    <ul>
+                        <li><code>em</code>: Relative to parent element's font-size (can cascade complexly).</li>
+                        <li><code>rem</code>: Relative to root (<code>&lt;html&gt;</code>) element's font-size. **Excellent for scalable layouts and accessibility.**</li>
+                    </ul>
+                </li>
+                <li><strong>Relative (Viewport):</strong>
+                    <ul>
+                        <li><code>vw</code>: 1% of viewport width.</li>
+                        <li><code>vh</code>: 1% of viewport height.</li>
+                        <li><code>vmin</code>/<code>vmax</code>: 1% of smaller/larger viewport dimension.</li>
+                    </ul>
+                </li>
+                <li><strong>Relative (Other):</strong> <code>%</code> (relative to parent element's size for many properties).</li>
+                <li><strong>Grid Specific:</strong> <code>fr</code> (fractional unit of available space).</li>
+            </ul>
+            <p><strong>General Advice:</strong> Use `rem` for `font-size`, `padding`, `margin` where scalability is desired. Use `px` for things like `border-width` where a fixed size is needed. Use `%` or `vw` for widths that should adapt to the container/viewport.</p>
+
+            <h3>6. Colors 🎨</h3>
+            <p>Specify colors using various formats:</p>
+             <ul class="list-disc list-inside mb-4">
+                <li><strong>Keywords:</strong> <code>red</code>, <code>blue</code>, <code>transparent</code>, <code>lightcoral</code> (many named colors).</li>
+                <li><strong>Hexadecimal:</strong> <code>#RRGGBB</code> or <code>#RGB</code> (e.g., <code>#FF0000</code>, <code>#f00</code> for red). Can add alpha (transparency) with <code>#RRGGBBAA</code> or <code>#RGBA</code> (e.g., <code>#ff000080</code> for 50% transparent red).</li>
+                <li><strong>RGB/RGBA:</strong> <code>rgb(red, green, blue)</code> (values 0-255) or <code>rgba(red, green, blue, alpha)</code> (alpha 0-1). Ex: <code>rgb(255, 0, 0)</code>, <code>rgba(255, 0, 0, 0.5)</code>.</li>
+                <li><strong>HSL/HSLA:</strong> <code>hsl(hue, saturation, lightness)</code> (hue 0-360, sat/light 0-100%) or <code>hsla(..., alpha)</code>. Often more intuitive for adjusting colors. Ex: <code>hsl(120, 100%, 50%)</code> (green), <code>hsla(0, 100%, 50%, 0.7)</code> (70% transparent red).</li>
+            </ul>
+            <p>Apply using <code>color</code> (for text) and <code>background-color</code> (for backgrounds).</p>
+
+            <h3>7. Typography ✍️</h3>
+            <p>Styling text content.</p>
+             <ul class="list-disc list-inside mb-4">
+                <li><code>font-family</code>: Specify font names (provide fallbacks!). Ex: <code>font-family: "Inter", sans-serif;</code></li>
+                <li><code>font-size</code>: Size of the text (use `rem` for scalability). Ex: <code>font-size: 1.1rem;</code></li>
+                <li><code>font-weight</code>: Boldness (<code>normal</code>, <code>bold</code>, or numbers 100-900). Ex: <code>font-weight: 700;</code></li>
+                <li><code>font-style</code>: <code>normal</code>, <code>italic</code>, <code>oblique</code>.</li>
+                <li><code>line-height</code>: Space between lines of text (unitless values like <code>1.6</code> are recommended, relative to font-size).</li>
+                <li><code>text-align</code>: <code>left</code>, <code>right</code>, <code>center</code>, <code>justify</code>.</li>
+                <li><code>text-decoration</code>: <code>none</code>, <code>underline</code>, <code>overline</code>, <code>line-through</code>.</li>
+                <li><code>text-transform</code>: <code>none</code>, <code>uppercase</code>, <code>lowercase</code>, <code>capitalize</code>.</li>
+                <li><code>letter-spacing</code> / <code>word-spacing</code>: Adjust space between characters/words.</li>
+            </ul>
+
+            <h3>8. Backgrounds, Borders, Display & Position</h3>
+             <ul class="list-disc list-inside mb-4">
+                 <li><strong>Backgrounds:</strong> <code>background-color</code>, <code>background-image: url(...)</code>, <code>background-repeat</code>, <code>background-position</code>, <code>background-size</code> (<code>cover</code>, <code>contain</code>), <code>background-attachment</code> (<code>scroll</code>, <code>fixed</code>). Shorthand: <code>background</code>.</li>
+                 <li><strong>Borders:</strong> <code>border-width</code>, <code>border-style</code> (<code>solid</code>, <code>dashed</code>, etc.), <code>border-color</code>. Shorthand: <code>border: 1px solid black;</code>. Can style sides individually (<code>border-bottom</code>). <code>border-radius</code> for rounded corners!</li>
+                 <li><strong><code>display</code> Property:</strong> Controls how an element is rendered. Key values:
+                    <ul>
+                        <li><code>block</code>: Takes full width, starts on new line (<code>div</code>, <code>p</code>, <code>h1</code>).</li>
+                        <li><code>inline</code>: Flows with text, width/height/vertical margins ignored (<code>span</code>, <code>a</code>, <code>strong</code>).</li>
+                        <li><code>inline-block</code>: Flows like inline, but respects width/height/vertical margins/padding.</li>
+                        <li><code>none</code>: Hides the element entirely (removed from layout).</li>
+                        <li><code>flex</code>: Enables Flexbox layout for children.</li>
+                        <li><code>grid</code>: Enables Grid layout for children.</li>
+                    </ul>
+                 </li>
+                 <li><strong><code>position</code> Property:</strong> Controls element positioning method.
+                    <ul>
+                        <li><code>static</code>: Default, follows normal document flow.</li>
+                        <li><code>relative</code>: Positioned relative to its normal position using `top/right/bottom/left`. Creates stacking context.</li>
+                        <li><code>absolute</code>: Removed from flow, positioned relative to nearest *positioned* ancestor (non-static). Uses `top/right/bottom/left`.</li>
+                        <li><code>fixed</code>: Removed from flow, positioned relative to the *viewport*. Stays put when scrolling. Uses `top/right/bottom/left`.</li>
+                        <li><code>sticky</code>: Mix of relative/fixed. Scrolls with flow until it hits offset defined by `top/etc.`, then sticks.</li>
+                    </ul>
+                 </li>
+                 <li><strong><code>z-index</code>:</strong> Controls stacking order for positioned elements (higher value = on top). Only works on positioned elements.</li>
+             </ul>
+
+            <h3>9. Layout Deep Dive: Flexbox & Grid 📐</h3>
+            <h4>Flexbox 💪 (1D Layout)</h4>
+            <p>Use <code>display: flex;</code> on the parent container.</p>
+            <h5>Container Properties:</h5>
+            <ul class="list-disc list-inside mb-2">
+                <li><code>flex-direction</code>: <code>row</code> | <code>row-reverse</code> | <code>column</code> | <code>column-reverse</code></li>
+                <li><code>flex-wrap</code>: <code>nowrap</code> | <code>wrap</code> | <code>wrap-reverse</code></li>
+                <li><code>justify-content</code> (Main axis alignment): <code>flex-start</code> | <code>flex-end</code> | <code>center</code> | <code>space-between</code> | <code>space-around</code> | <code>space-evenly</code></li>
+                <li><code>align-items</code> (Cross axis alignment - single line): <code>stretch</code> | <code>flex-start</code> | <code>flex-end</code> | <code>center</code> | <code>baseline</code></li>
+                <li><code>align-content</code> (Cross axis alignment - multiple lines): (similar to `justify-content`)</li>
+                <li><code>gap</code>: Space between items (e.g., <code>1rem</code>, <code>10px 20px</code>).</li>
+            </ul>
+            <h5>Item Properties:</h5>
+            <ul class="list-disc list-inside mb-4">
+                <li><code>order</code>: Visual order (integer, default 0).</li>
+                <li><code>flex-grow</code>: Ability to grow (unitless proportion, default 0).</li>
+                <li><code>flex-shrink</code>: Ability to shrink (unitless proportion, default 1).</li>
+                <li><code>flex-basis</code>: Initial size before distributing space (length/%, default `auto`).</li>
+                <li><code>flex</code>: Shorthand for grow, shrink, basis (e.g., <code>flex: 1 1 auto;</code>).</li>
+                <li><code>align-self</code>: Override container's `align-items` for one item.</li>
+            </ul>
+
+            <h4>Grid ▦ (2D Layout)</h4>
+            <p>Use <code>display: grid;</code> on the parent container.</p>
+            <h5>Container Properties:</h5>
+            <ul class="list-disc list-inside mb-2">
+                <li><code>grid-template-columns</code> / <code>grid-template-rows</code>: Define tracks (e.g., <code>1fr 1fr 2fr</code>, <code>repeat(3, 100px)</code>, <code>minmax(150px, 1fr)</code>).</li>
+                <li><code>grid-template-areas</code>: Define named layout areas.</li>
+                <li><code>gap</code> / <code>row-gap</code> / <code>column-gap</code>: Space between tracks.</li>
+                <li><code>justify-items</code> / <code>align-items</code>: Default alignment of items *within* grid cells.</li>
+                <li><code>justify-content</code> / <code>align-content</code>: Alignment of the *entire grid* within the container.</li>
+            </ul>
+            <h5>Item Properties:</h5>
+            <ul class="list-disc list-inside mb-4">
+                <li><code>grid-column-start</code> / <code>grid-column-end</code> / <code>grid-row-start</code> / <code>grid-row-end</code>: Placement using line numbers.</li>
+                <li><code>grid-column</code> / <code>grid-row</code>: Shorthand (e.g., <code>1 / 3</code>, <code>span 2</code>).</li>
+                <li><code>grid-area</code>: Place item in named area or shorthand for line numbers.</li>
+                <li><code>justify-self</code> / <code>align-self</code>: Override default item alignment within its cell.</li>
+            </ul>
+
+            <h3>10. Responsive Design & Media Queries 📱💻</h3>
+            <p>Making your site adapt beautifully to different screen sizes.</p>
+            <ul class="list-disc list-inside mb-4">
+                <li>**Viewport Meta Tag:** Essential! Include <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code> in your HTML <code>&lt;head&gt;</code>.</li>
+                <li>**Fluid Layouts:** Use relative units (<code>%</code>, <code>rem</code>, <code>vw</code>) for widths, margins, padding where possible.</li>
+                <li>**Flexible Images:** Use <code>max-width: 100%; height: auto;</code> on images to prevent overflow.</li>
+                <li>**Media Queries:** Apply CSS rules conditionally based on screen/device characteristics.</li>
+            </ul>
+            <h4>Media Query Syntax:</h4>
+            <div class="code-block-wrapper">
+                <pre><code class="language-css">
+<span class="css-comment">/* Basic width-based query */</span>
+<span class="css-selector">@media</span> (<span class="css-property">min-width</span>: <span class="css-value">768<span class="css-unit">px</span></span>) {
+  <span class="css-comment">/* Styles apply when viewport width is 768px or wider */</span>
+  <span class="css-selector">.container</span> { <span class="css-property">max-width</span>: <span class="css-value">720<span class="css-unit">px</span></span>; }
+}
+
+<span class="css-comment">/* Combining features */</span>
+<span class="css-selector">@media</span> (<span class="css-property">max-width</span>: <span class="css-value">600<span class="css-unit">px</span></span>) <span class="css-keyword">and</span> (<span class="css-property">orientation</span>: <span class="css-value">landscape</span>) {
+  <span class="css-comment">/* Styles for small landscape devices */</span>
+}
+
+<span class="css-comment">/* Targeting screen types */</span>
+<span class="css-selector">@media</span> <span class="css-keyword">print</span> {
+  <span class="css-comment">/* Styles specifically for printing */</span>
+  <span class="css-selector">body</span> { <span class="css-property">color</span>: <span class="css-value">black</span>; <span class="css-property">background</span>: <span class="css-value">none</span>; }
+  <span class="css-selector">nav, footer</span> { <span class="css-property">display</span>: <span class="css-value">none</span>; }
+}
+                </code></pre>
+                 <button class="copy-button" aria-label="Copy code to clipboard">Copy</button>
+            </div>
+            <p class="mt-2">**Mobile First:** Design default styles for mobile, then use `min-width` media queries to add complexity for larger screens. This is generally recommended.</p>
+
+            <h3>11. Transitions & Animations ✨</h3>
+            <ul class="list-disc list-inside mb-4">
+                <li><strong><code>transition</code>:</strong> Smoothly animates property changes over time, usually triggered by state changes (like <code>:hover</code>). Define `transition-property`, `transition-duration`, `transition-timing-function`, `transition-delay`. Shorthand: `transition: background-color 0.3s ease-in-out;`</li>
+                <li><strong><code>animation</code>:</strong> Creates more complex, keyframed animations. Define steps using <code>@keyframes</code> rule, then apply using `animation-name`, `animation-duration`, `animation-timing-function`, `animation-delay`, `animation-iteration-count`, `animation-direction`. Shorthand: `animation: spin 2s linear infinite;`</li>
+            </ul>
+
+            <h3>12. CSS Variables (Custom Properties) 🎨</h3>
+            <p>Define reusable values directly in CSS. Great for theming and maintainability.</p>
+            <div class="code-block-wrapper">
+                <pre><code class="language-css">
+<span class="css-comment">/* Define variables on the :root (<html> element) */</span>
+<span class="css-selector">:root</span> {
+  <span class="css-property">--primary-color</span>: <span class="css-value">#6366f1</span>; <span class="css-comment">/* indigo-500 */</span>
+  <span class="css-property">--text-dark</span>: <span class="css-value">#1f2937</span>; <span class="css-comment">/* gray-800 */</span>
+  <span class="css-property">--base-spacing</span>: <span class="css-value">1<span class="css-unit">rem</span></span>;
+}
+
+<span class="css-comment">/* Use variables */</span>
+<span class="css-selector">body</span> {
+  <span class="css-property">color</span>: <span class="css-value">var(--text-dark)</span>;
+}
+<span class="css-selector">.button-primary</span> {
+  <span class="css-property">background-color</span>: <span class="css-value">var(--primary-color)</span>;
+  <span class="css-property">padding</span>: <span class="css-value">calc(var(--base-spacing) * 0.75) calc(var(--base-spacing) * 1.5)</span>;
+}
+                </code></pre>
+                 <button class="copy-button" aria-label="Copy code to clipboard">Copy</button>
+            </div>
+
+            <h3>13. Best Practices & Organization 💯</h3>
+             <ul class="list-disc list-inside mb-4">
+                 <li>**Keep CSS Separate:** Use external stylesheets.</li>
+                 <li>**Organize Your CSS:** Group related rules (e.g., base styles, layout, components, utilities). Use comments liberally.</li>
+                 <li>**Use Meaningful Class Names:** Describe *what* the element is or its purpose, not *how* it looks (e.g., `.product-card` is better than `.red-box-left`). Consider methodologies like BEM (`.block__element--modifier`).</li>
+                 <li>**Be Mindful of Specificity:** Avoid overly specific selectors or excessive use of `!important`.</li>
+                 <li>**DRY (Don't Repeat Yourself):** Use classes and CSS variables to avoid redundant code.</li>
+                 <li>**Mobile First:** Design for small screens first, then add complexity for larger ones via media queries.</li>
+                 <li>**Use Relative Units:** Prefer `rem` for fonts/spacing, `%`/`vw` for layout widths where appropriate.</li>
+                 <li>**Lint Your CSS:** Use tools like Stylelint to catch errors and enforce consistency.</li>
+             </ul>
+
+             <p class="mt-6 font-semibold">CSS is powerful! Experiment, use browser dev tools to inspect styles, and practice applying these concepts to make your HTML shine. ✨</p>
         </section>
 
     </main>
