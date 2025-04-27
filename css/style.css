@@ -47,9 +47,7 @@ body {
     font-size: 1.875rem; /* text-3xl */
     font-weight: 700; /* font-bold */
     color: #ffffff; /* White */
-    /* === UPDATED: Remove default browser margins === */
     margin: 0;
-    /* === ADDED: Add some bottom margin ONLY for mobile view === */
     margin-bottom: 0.5rem;
 }
 
@@ -68,7 +66,6 @@ body {
     text-decoration: none;
     font-size: 0.875rem; /* text-sm */
     font-weight: 500; /* font-medium */
-    /* === ADDED: Ensure links align well in flex === */
     display: inline-block; /* Helps with consistent height/padding */
 }
 
@@ -263,7 +260,7 @@ pre code { /* Code inside pre */
     color: #4c1d95; /* violet-900 */
 }
 
-/* Call-to-action Button */
+/* Call-to-action Button (General) */
 .cta-button {
     display: inline-block;
     background-color: #7c3aed; /* violet-600 */
@@ -272,15 +269,110 @@ pre code { /* Code inside pre */
     border-radius: 1rem; /* Squircle */
     text-decoration: none;
     font-weight: 500;
-    transition: background-color 0.2s ease, transform 0.1s ease;
+    border: none; /* Ensure no default border */
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
     box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
 }
 .cta-button:hover {
     background-color: #6d28d9; /* violet-700 */
+    box-shadow: 0 6px 16px rgba(124, 58, 237, 0.4);
 }
 .cta-button:active {
     transform: scale(0.98);
+    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.2);
 }
+
+/* === Quiz Specific Styles === */
+.quiz-container {
+    margin-top: 2.5rem; /* mt-10 */
+    padding-top: 1.5rem; /* pt-6 */
+    border-top: 1px solid rgba(168, 85, 247, 0.3); /* purple border */
+}
+.quiz-container h3 {
+    color: #581c87; /* purple-900 */
+    border-bottom: none; /* Remove default h3 border */
+    margin-bottom: 1.5rem;
+}
+.quiz-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* space-y-6 */
+}
+.quiz-question {
+    padding: 1rem; /* p-4 */
+    border: 1px solid rgba(168, 85, 247, 0.4); /* purple border */
+    border-radius: 0.75rem; /* rounded-lg squircle-sm */
+    background-color: rgba(250, 245, 255, 0.4); /* purple-50 semi-transparent */
+}
+.quiz-question legend {
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 500; /* font-medium */
+    margin-bottom: 0.75rem; /* mb-3 */
+    padding: 0 0.25rem; /* px-1 */
+    color: #4c1d95; /* violet-900 */
+    transition: border-bottom 0.3s ease; /* For result highlighting */
+}
+.quiz-question div { /* Spacing for radio buttons */
+    margin-bottom: 0.5rem;
+}
+.quiz-question label {
+    cursor: pointer;
+    display: inline-flex; /* Align radio and text */
+    align-items: center;
+    gap: 0.5rem;
+    transition: border-bottom 0.3s ease; /* For result highlighting */
+}
+.quiz-question input[type="radio"] {
+    cursor: pointer;
+    accent-color: #7c3aed; /* violet-600 */
+}
+
+/* === UPDATED Quiz Submit Button Styling === */
+.quiz-submit-button {
+    /* Inherit from .cta-button but maybe make slightly different */
+    background-color: #8b5cf6; /* violet-500 */
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem; /* Slightly larger */
+    margin-top: 1rem; /* Add space above the button */
+    align-self: flex-start; /* Align button to the left */
+    box-shadow: 0 3px 10px rgba(139, 92, 246, 0.3);
+}
+.quiz-submit-button:hover {
+    background-color: #7c3aed; /* violet-600 */
+    box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
+}
+.quiz-submit-button:active {
+    background-color: #6d28d9; /* violet-700 */
+    transform: scale(0.97);
+    box-shadow: 0 1px 5px rgba(139, 92, 246, 0.2);
+}
+
+.quiz-results {
+    margin-top: 1.5rem; /* mt-6 */
+    padding: 1rem; /* p-4 */
+    border-radius: 0.75rem; /* rounded-lg squircle-sm */
+    /* Background/border set by JS based on results */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.quiz-results p {
+    margin-bottom: 0.5rem;
+}
+.quiz-results p:last-child {
+    margin-bottom: 0;
+}
+.quiz-results strong {
+    font-weight: 600;
+}
+/* Class added by JS for overall score styling */
+.quiz-results .final-score {
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 600; /* font-semibold */
+    margin-top: 1rem; /* mt-4 */
+    padding-top: 0.5rem; /* pt-2 */
+    border-top: 1px solid rgba(168, 85, 247, 0.4); /* purple-300 border */
+}
+
 
 /* Interactive Demo */
 .interactive-demo {
@@ -314,8 +406,8 @@ pre code { /* Code inside pre */
      box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.3); /* violet-600 */
      outline: none;
 }
-.interactive-demo button {
-    background-color: #7c3aed; /* violet-600 */
+.interactive-demo button { /* Demo button uses different base color */
+    background-color: #4f46e5; /* indigo-600 */
     color: white;
     padding: 0.6rem 1.2rem;
     border-radius: 0.75rem; /* Squircle button */
@@ -323,9 +415,9 @@ pre code { /* Code inside pre */
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.1s ease;
     font-weight: 500;
-    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.3);
+    box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
 }
-.interactive-demo button:hover { background-color: #6d28d9; }
+.interactive-demo button:hover { background-color: #4338ca; }
 .interactive-demo button:active { transform: scale(0.98); }
 .interactive-demo button:disabled {
     background-color: #a7a29b; /* stone-400 */
@@ -397,11 +489,10 @@ img {
 @media (min-width: 768px) { /* Medium screens and up */
     .header-container {
         flex-direction: row;
-        /* === ADDED: Ensure vertical centering on larger screens === */
-        align-items: center;
+        align-items: center; /* Vertically center logo and nav */
     }
     .logo {
-        margin-bottom: 0; /* Remove bottom margin added for mobile */
+        margin-bottom: 0; /* Remove bottom margin for desktop */
     }
     .main-nav {
         justify-content: flex-end; /* Align nav links to the right */
