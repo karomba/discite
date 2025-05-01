@@ -2,56 +2,63 @@
  * Discite Main JavaScript File
  *
  * Includes:
+ * - Dark Mode Toggle & Persistence
  * - Active Navigation Link Highlighting
  * - Copy-to-Clipboard functionality for code blocks
  * - Interactive Demo functionality (if elements exist)
  * - Simple Quiz Functionality
- * - Dark Mode Toggle functionality
- * - Client-side Site Search Initialization
+ * - Basic Client-Side Search
  */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    console.log("Discite JS Initializing... ");
+    console.log("Discite JS Initializing... 🚀");
 
-    // --- Dark Mode Toggle Initialization ---
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
-    const bodyElem = document.body;
-    const savedMode = localStorage.getItem('darkMode');
-    if (savedMode === 'enabled') {
-        bodyElem.classList.add('dark-mode');
+    // --- Dark Mode Functionality ---
+    const themeToggleButton = document.getElementById('theme-toggle');
+    const lightIcon = themeToggleButton?.querySelector('.light-icon');
+    const darkIcon = themeToggleButton?.querySelector('.dark-icon');
+    const currentTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+    function applyTheme(theme) {
+        if (theme === 'dark') {
+            document.body.classList.add('dark-mode');
+            if (lightIcon) lightIcon.style.display = 'none';
+            if (darkIcon) darkIcon.style.display = 'inline';
+        } else {
+            document.body.classList.remove('dark-mode');
+            if (lightIcon) lightIcon.style.display = 'inline';
+            if (darkIcon) darkIcon.style.display = 'none';
+        }
     }
-    if (darkModeToggle) {
-        darkModeToggle.addEventListener('click', () => {
-            bodyElem.classList.toggle('dark-mode');
-            if (bodyElem.classList.contains('dark-mode')) {
-                localStorage.setItem('darkMode', 'enabled');
-            } else {
-                localStorage.setItem('darkMode', 'disabled');
-            }
+
+    // Apply initial theme
+    applyTheme(currentTheme);
+
+    // Add toggle listener
+    if (themeToggleButton) {
+        themeToggleButton.addEventListener('click', () => {
+            let newTheme = document.body.classList.contains('dark-mode') ? 'light' : 'dark';
+            localStorage.setItem('theme', newTheme); // Save preference
+            applyTheme(newTheme);
         });
+    } else {
+        console.warn("Theme toggle button not found.");
     }
 
     // --- Active Navigation Link Highlighting ---
     function highlightActiveNav() {
         try {
             const navLinks = document.querySelectorAll('.main-nav .nav-link');
-            // Get the filename from the current URL (e.g., "html.html" or "index.html")
             const currentPath = window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1) || 'index.html';
-
-            // console.log(`Current Page: ${currentPath}`); // Debugging
 
             navLinks.forEach(link => {
                 const linkPath = link.getAttribute('href').split('/').pop() || 'index.html';
-                // Remove active class from all links first
                 link.classList.remove('active');
                 link.removeAttribute('aria-current');
-
-                // Add active class if the link path matches the current path
                 if (linkPath === currentPath) {
                     link.classList.add('active');
-                    link.setAttribute('aria-current', 'page'); // Accessibility best practice
-                    // console.log(`Activating link: ${linkPath}`); // Debugging
+                    link.setAttribute('aria-current', 'page');
                 }
             });
         } catch (error) {
@@ -63,39 +70,26 @@ document.addEventListener('DOMContentLoaded', () => {
     function setupCopyButtons() {
         try {
             const codeBlocks = document.querySelectorAll('.code-block-wrapper');
-
             codeBlocks.forEach(wrapper => {
                 const copyButton = wrapper.querySelector('.copy-button');
                 const codeElement = wrapper.querySelector('pre code');
-
                 if (copyButton && codeElement) {
                     copyButton.addEventListener('click', () => {
-                        const codeToCopy = codeElement.textContent || "";
-                        navigator.clipboard.writeText(codeToCopy).then(() => {
-                            // Success feedback
-                            copyButton.textContent = 'Copied! ';
+                        navigator.clipboard.writeText(codeElement.textContent || "").then(() => {
+                            copyButton.textContent = 'Copied! ✅';
                             copyButton.classList.add('copied');
-                            // Prevent multiple clicks while showing feedback
                             copyButton.disabled = true;
-
                             setTimeout(() => {
                                 copyButton.textContent = 'Copy';
                                 copyButton.classList.remove('copied');
-                                copyButton.disabled = false; // Re-enable button
-                            }, 2000); // Reset after 2 seconds
+                                copyButton.disabled = false;
+                            }, 2000);
                         }).catch(err => {
                             console.error('Failed to copy code: ', err);
-                            copyButton.textContent = 'Error ';
-                            // Optionally provide more user feedback here, maybe a tooltip
-                            setTimeout(() => {
-                                copyButton.textContent = 'Copy';
-                            }, 3000); // Reset after 3 seconds on error
+                            copyButton.textContent = 'Error ❌';
+                            setTimeout(() => { copyButton.textContent = 'Copy'; }, 3000);
                         });
                     });
-                } else {
-                     // If button/code element missing in a wrapper, log it (might indicate HTML issue)
-                     if (!copyButton) console.warn("Copy button not found in wrapper:", wrapper);
-                     if (!codeElement) console.warn("Code element not found in wrapper:", wrapper);
                 }
             });
         } catch (error) {
@@ -109,40 +103,20 @@ document.addEventListener('DOMContentLoaded', () => {
             const inputElement = document.querySelector('#demo-input');
             const actionButton = document.querySelector('#demo-action-button');
             const outputArea = document.querySelector('#demo-output');
-
-            // Only run if all demo elements are present on the current page
-            if (!inputElement || !actionButton || !outputArea) {
-                 // This is expected on pages without the demo, so no error needed
-                 // console.log("Interactive demo elements not found on this page.");
-                return;
-            }
+            if (!inputElement || !actionButton || !outputArea) return;
 
             const handleUpdate = () => {
                 const inputText = inputElement.value.trim();
-
-                if (inputText === '') {
-                    outputArea.textContent = 'Bruh, enter something! ';
-                    outputArea.style.color = '#b91c1c'; // Match CSS error color (red-700)
-                } else {
-                    // Use textContent for safety against HTML injection
-                    outputArea.textContent = `You entered: "${inputText}" `;
-                    outputArea.style.color = '#1e3a8a'; // Match CSS default color (blue-800)
-                    inputElement.value = ''; // Clear the input field
-                }
-                inputElement.focus(); // Return focus to input for better UX
+                outputArea.textContent = inputText ? `You entered: "${inputText}" 😎` : 'Bruh, enter something! 🤷';
+                outputArea.style.color = inputText ? 'var(--heading-text)' : '#b91c1c'; // Use CSS var or red
+                inputElement.value = '';
+                inputElement.focus();
             };
-
             actionButton.addEventListener('click', handleUpdate);
-
             inputElement.addEventListener('keydown', (event) => {
-                // event.key is the modern standard
-                if (event.key === 'Enter') {
-                    event.preventDefault(); // Prevent default Enter behavior (like potential form submission)
-                    handleUpdate(); // Call the same handler
-                }
+                if (event.key === 'Enter') { event.preventDefault(); handleUpdate(); }
             });
-
-            console.log("Interactive demo initialized. "); // Confirm initialization
+            console.log("Interactive demo initialized. ✅");
         } catch (error) {
             console.error("Error setting up interactive demo:", error);
         }
@@ -152,9 +126,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function setupQuizzes() {
         try {
             const quizContainers = document.querySelectorAll('.quiz-container');
-            if (quizContainers.length === 0) return; // No quizzes on this page
+            if (quizContainers.length === 0) return;
 
-            // Define correct answers (could be fetched or stored differently)
             const correctAnswers = {
                 'html-quiz': { q1: 'a', q2: 'c', q3: 'a' },
                 'css-quiz': { q1: 'c', q2: 'a', q3: 'b' },
@@ -166,20 +139,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 const resultsDiv = container.querySelector('.quiz-results');
                 const quizId = container.id;
                 const answers = correctAnswers[quizId];
-
-                if (!form || !resultsDiv || !answers) {
-                    console.warn(`Quiz setup incomplete for container ID: ${quizId}`);
-                    return; // Skip this quiz if elements are missing
-                }
+                if (!form || !resultsDiv || !answers) return;
 
                 form.addEventListener('submit', (event) => {
-                    event.preventDefault(); // Prevent default form submission
+                    event.preventDefault();
                     let score = 0;
                     let totalQuestions = 0;
-                    resultsDiv.innerHTML = ''; // Clear previous results
-                    // Reset legend borders
-                    form.querySelectorAll('.quiz-question legend').forEach(lg => lg.style.borderBottom = '');
-
+                    resultsDiv.innerHTML = '';
+                    form.querySelectorAll('.quiz-question legend').forEach(lg => lg.style.borderBottom = ''); // Reset borders
 
                     const questions = form.querySelectorAll('.quiz-question');
                     questions.forEach((question, index) => {
@@ -188,76 +155,96 @@ document.addEventListener('DOMContentLoaded', () => {
                         const selectedAnswer = form.querySelector(`input[name="${questionName}"]:checked`);
                         const correctAnswer = answers[questionName];
                         const legend = question.querySelector('legend');
-
                         const resultP = document.createElement('p');
-                        resultP.style.marginBottom = '0.5rem'; // Add some spacing
+                        resultP.style.marginBottom = '0.5rem';
 
                         if (selectedAnswer) {
-                            // Find the label associated with the selected answer for potential styling
                             const selectedLabel = selectedAnswer.closest('label');
-
                             if (selectedAnswer.value === correctAnswer) {
                                 score++;
-                                resultP.innerHTML = `<strong>Q${index + 1}:</strong> Correct! `;
-                                resultP.style.color = '#059669'; // Green-600
-                                if (legend) legend.style.borderBottom = '2px solid #10b981'; // emerald-500
-                                if (selectedLabel) selectedLabel.style.fontWeight = 'bold'; // Highlight correct selection
+                                resultP.innerHTML = `<strong>Q${index + 1}:</strong> Correct! ✅`;
+                                resultP.style.color = 'var(--syntax-js-string)'; // Use green color var
+                                if (legend) legend.style.borderBottom = '2px solid var(--syntax-js-string)';
+                                if (selectedLabel) selectedLabel.style.fontWeight = 'bold';
                             } else {
-                                resultP.innerHTML = `<strong>Q${index + 1}:</strong> Incorrect. `;
-                                resultP.style.color = '#dc2626'; // Red-600
-                                if (legend) legend.style.borderBottom = '2px solid #f87171'; // red-400
-                                // Optionally find and highlight the correct answer's label
+                                resultP.innerHTML = `<strong>Q${index + 1}:</strong> Incorrect. ❌`;
+                                resultP.style.color = 'var(--syntax-js-number)'; // Use red/pink color var
+                                if (legend) legend.style.borderBottom = '2px solid var(--syntax-js-number)';
                                 const correctInput = form.querySelector(`input[name="${questionName}"][value="${correctAnswer}"]`);
                                 if (correctInput) {
                                     const correctLabel = correctInput.closest('label');
-                                    if (correctLabel) correctLabel.style.borderBottom = '2px solid #10b981'; // Highlight correct answer
+                                    if (correctLabel) correctLabel.style.borderBottom = '2px solid var(--syntax-js-string)';
                                 }
                             }
                         } else {
-                            resultP.innerHTML = `<strong>Q${index + 1}:</strong> Not answered. `;
-                            resultP.style.color = '#f59e0b'; // Amber-500
-                            if (legend) legend.style.borderBottom = '2px solid #fbbf24'; // amber-400
+                            resultP.innerHTML = `<strong>Q${index + 1}:</strong> Not answered. 🤔`;
+                            resultP.style.color = 'var(--syntax-js-function)'; // Use orange/yellow color var
+                            if (legend) legend.style.borderBottom = '2px solid var(--syntax-js-function)';
                         }
                         resultsDiv.appendChild(resultP);
                     });
 
-                    // Display final score
                     const scoreP = document.createElement('p');
-                    scoreP.innerHTML = `<strong>Final Score: ${score} out of ${totalQuestions}</strong> ${score === totalQuestions ? ' Perfect!' : (score / totalQuestions >= 0.6 ? ' Good Job!' : ' Keep Practicing!')}`;
-                    scoreP.className = 'text-lg font-semibold mt-4 pt-2 border-t border-purple-300 border-opacity-50'; // Added Tailwind classes via CSS instead if preferred
+                    scoreP.innerHTML = `<strong>Final Score: ${score} out of ${totalQuestions}</strong> ${score === totalQuestions ? '🎉 Perfect!' : (score / totalQuestions >= 0.6 ? '👍 Good Job!' : '🧐 Keep Practicing!')}`;
+                    scoreP.className = 'final-score'; // Use class from CSS
                     resultsDiv.appendChild(scoreP);
 
-                    // Add styles for results area appearance
-                    resultsDiv.style.backgroundColor = 'rgba(245, 243, 255, 0.7)'; // Light purple tint bg
-                    resultsDiv.style.border = '1px solid rgba(196, 181, 253, 0.7)'; // violet-200 border
+                    resultsDiv.style.backgroundColor = 'var(--quiz-results-bg)';
+                    resultsDiv.style.border = '1px solid var(--quiz-results-border)';
                     resultsDiv.style.marginTop = '1rem';
                     resultsDiv.style.padding = '1rem';
-                    resultsDiv.style.borderRadius = '0.75rem'; // squircle-sm equivalent
+                    resultsDiv.style.borderRadius = '0.75rem';
                 });
             });
-             console.log(`Quizzes initialized (${quizContainers.length} found). `);
+             console.log(`Quizzes initialized (${quizContainers.length} found). ✅`);
         } catch (error) {
             console.error("Error setting up quizzes:", error);
         }
     }
 
-    // --- Site Search Initialization ---
-    const searchInput = document.getElementById('site-search');
-    const contentSections = document.querySelectorAll('.content-section');
-    if (searchInput) {
-        searchInput.addEventListener('input', () => {
-            const term = searchInput.value.trim().toLowerCase();
-            contentSections.forEach(section => {
-                const text = section.textContent.toLowerCase();
-                section.style.display = term === '' || text.includes(term) ? '' : 'none';
+    // --- Basic Client-Side Search ---
+    function setupSearch() {
+        try {
+            const searchInput = document.getElementById('site-search');
+            const contentSections = document.querySelectorAll('main .content-section'); // Target sections in main content
+
+            if (!searchInput || contentSections.length === 0) {
+                // console.log("Search input or content sections not found.");
+                return; // Exit if search input or sections aren't present
+            }
+
+            searchInput.addEventListener('input', (event) => {
+                const searchTerm = event.target.value.toLowerCase().trim();
+
+                contentSections.forEach(section => {
+                    // Make text content easily searchable (ignore code blocks for now)
+                    let sectionText = '';
+                    section.querySelectorAll('p, h2, h3, h4, li, legend, caption, th, td').forEach(el => {
+                        sectionText += (el.textContent || '').toLowerCase() + ' ';
+                    });
+
+                    // Basic show/hide logic
+                    if (sectionText.includes(searchTerm)) {
+                        section.classList.remove('hidden-by-search');
+                        section.style.display = ''; // Reset display
+                    } else {
+                        section.classList.add('hidden-by-search');
+                        section.style.display = 'none'; // Hide section
+                    }
+                });
             });
-        });
+            console.log("Search functionality initialized. ✅");
+        } catch (error) {
+            console.error("Error setting up search:", error);
+        }
     }
+
 
     // --- Initialize all features ---
     highlightActiveNav();
     setupCopyButtons();
     setupDemo();
-    setupQuizzes(); // Initialize quizzes
+    setupQuizzes();
+    setupSearch(); // Initialize search
 
 }); // End DOMContentLoaded
