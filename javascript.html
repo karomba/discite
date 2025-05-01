@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Discite: JavaScript Fundamentals ✨🧠 (Comprehensive)</title>
+    <meta name="description" content="Learn JavaScript fundamentals on Discite. Covers variables, data types, operators, control flow, functions, arrays, objects, DOM manipulation, events, async JS, and best practices.">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +18,8 @@
     <header class="sticky-header">
         <div class="container header-container">
              <div class="logo">
-              <a href="index.html" aria-label="Discite Homepage"> <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <a href="index.html" aria-label="Discite Homepage">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <filter id="glass-blur" x="-50%" y="-50%" width="200%" height="200%">
                             <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
@@ -47,6 +49,12 @@
                 </svg>
                 </a>
             </div>
+            <div class="header-controls">
+                <input type="search" id="site-search" name="q" placeholder="Search site..." aria-label="Search through site content" class="search-input">
+                <button id="theme-toggle" type="button" class="theme-toggle-button" aria-label="Toggle dark mode">
+                    <span class="light-icon">☀️</span> <span class="dark-icon" style="display: none;">🌙</span>
+                </button>
+            </div>
             <nav class="main-nav" aria-label="Main navigation">
                 <a href="index.html" class="nav-link">Introduction</a>
                 <a href="html.html" class="nav-link">HTML</a>
@@ -62,15 +70,6 @@
              <h2 id="js-main-heading" class="text-3xl md:text-4xl font-bold section-header">
                 JavaScript: Making Web Pages Interactive ✨🧠 (Beginner to Winner!)
             </h2>
-            <!-- Interactive JS Demo Section -->
-            <section id="js-demo" class="content-section" aria-labelledby="js-demo-heading">
-                <h3 id="js-demo-heading" class="text-xl font-semibold mb-4 text-purple-800">Interactive DOM Demo 🧪</h3>
-                <div class="mb-4">
-                    <input id="demo-input" type="text" placeholder="Type something..." class="p-2 border rounded mr-2">
-                    <button id="demo-action-button" class="cta-button">Show Output</button>
-                </div>
-                <div id="demo-output" class="p-4 bg-white bg-opacity-70 border rounded">Your input will appear here</div>
-            </section>
             <p class="mb-4">Welcome to the JavaScript zone! While HTML structures content and CSS styles it, JavaScript is the **programming language** that adds behavior, interactivity, and dynamic updates to your webpages. It's what makes websites feel alive! ⚡</p>
             <p class="mb-4">We'll cover the core language features, how JS interacts with the browser (DOM), handles events, deals with asynchronous operations, and more.</p>
 
@@ -149,17 +148,17 @@
 
             <h3>4. Operators 🧮</h3>
             <p>Symbols that perform operations on values (operands).</p>
-            <ul class="list-disc list-inside mb-4">
-                <li><strong>Arithmetic:</strong> <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code> (remainder/modulo), <code>**</code> (exponentiation), <code>++</code> (increment), <code>--</code> (decrement).</li>
-                <li><strong>Assignment:</strong> <code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, etc.</li>
-                <li><strong>Comparison:</strong> <code>===</code> (strict equality - checks value & type, **use this!**), <code>!==</code> (strict inequality), <code>==</code> (loose equality - avoid, does type coercion), <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>.</li>
-                <li><strong>Logical:</strong> <code>&&</code> (AND), <code>||</code> (OR), <code>!</code> (NOT). Use short-circuiting.</li>
-                <li><strong>Ternary Operator:</strong> <code>condition ? valueIfTrue : valueIfFalse</code> (a concise if/else).</li>
-                <li><strong>Type Operators:</strong> <code>typeof</code>, <code>instanceof</code>.</li>
-                <li><strong>Spread/Rest (<code>...</code>):</strong> Spread expands iterables; Rest collects arguments into an array.</li>
-                <li><strong>Nullish Coalescing (<code>??</code>):</strong> Provides a default for <code>null</code> or <code>undefined</code> only (unlike <code>||</code> which triggers on any falsy value). Ex: <code>value ?? defaultValue</code></li>
-                <li><strong>Optional Chaining (<code>?.</code>):</strong> Safely access nested properties without errors. Ex: <code>user?.address?.street</code></li>
-            </ul>
+             <ul class="list-disc list-inside mb-4">
+                 <li><strong>Arithmetic:</strong> <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code> (remainder/modulo), <code>**</code> (exponentiation), <code>++</code> (increment), <code>--</code> (decrement).</li>
+                 <li><strong>Assignment:</strong> <code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, etc.</li>
+                 <li><strong>Comparison:</strong> <code>===</code> (strict equality - checks value & type, **use this!**), <code>!==</code> (strict inequality), <code>==</code> (loose equality - avoid, does type coercion), <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>.</li>
+                 <li><strong>Logical:</strong> <code>&&</code> (AND), <code>||</code> (OR), <code>!</code> (NOT). Use short-circuiting.</li>
+                 <li><strong>Ternary Operator:</strong> <code>condition ? valueIfTrue : valueIfFalse</code> (a concise if/else).</li>
+                 <li><strong>Type Operators:</strong> <code>typeof</code>, <code>instanceof</code>.</li>
+                 <li><strong>Spread/Rest (<code>...</code>):</strong> Spread expands iterables; Rest collects arguments into an array.</li>
+                 <li><strong>Nullish Coalescing (<code>??</code>):</strong> Provides a default for <code>null</code> or <code>undefined</code> only (unlike <code>||</code> which triggers on any falsy value). Ex: <code>value ?? defaultValue</code></li>
+                 <li><strong>Optional Chaining (<code>?.</code>):</strong> Safely access nested properties without errors. Ex: <code>user?.address?.street</code></li>
+             </ul>
 
             <h3>5. Type Conversion (Coercion) 🔄</h3>
             <p>JavaScript often automatically converts types (implicit coercion), which can be confusing (e.g., <code>'5' + 1 // "51"</code>, <code>'5' - 1 // 4</code>). It's usually better to convert types explicitly.</p>
