@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discite: Tools & Next Steps page outlines essential dev tools, project ideas, and further learning resources.">
     <title>Discite: Tools & Next Steps 🛠️➡️</title>
+    <meta name="description" content="Explore essential front-end development tools (VS Code, Git, GitHub, npm) and discover next steps like frameworks (React, Vue), testing, accessibility, and performance.">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,6 +49,12 @@
                 </svg>
                 </a>
             </div>
+            <div class="header-controls">
+                <input type="search" id="site-search" name="q" placeholder="Search site..." aria-label="Search through site content" class="search-input">
+                <button id="theme-toggle" type="button" class="theme-toggle-button" aria-label="Toggle dark mode">
+                    <span class="light-icon">☀️</span> <span class="dark-icon" style="display: none;">🌙</span>
+                </button>
+            </div>
             <nav class="main-nav" aria-label="Main navigation">
                 <a href="index.html" class="nav-link">Introduction</a>
                 <a href="html.html" class="nav-link">HTML</a>
@@ -56,8 +62,6 @@
                 <a href="javascript.html" class="nav-link">JavaScript</a>
                 <a href="tools.html" class="nav-link">Tools & Next Steps</a>
             </nav>
-            <input id="site-search" type="search" placeholder="Search..." aria-label="Search site" />
-            <button id="dark-mode-toggle" aria-label="Toggle dark mode">🌓</button>
         </div>
     </header>
 
