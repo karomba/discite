@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discite’s CSS page covers essentials of CSS, including Flexbox & Grid, interactive demos and quizzes.">
     <title>Discite: CSS Fundamentals 🎨 (Comprehensive)</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,6 +55,8 @@
                 <a href="javascript.html" class="nav-link">JavaScript</a>
                 <a href="tools.html" class="nav-link">Tools & Next Steps</a>
             </nav>
+            <input id="site-search" type="search" placeholder="Search..." aria-label="Search site" />
+            <button id="dark-mode-toggle" aria-label="Toggle dark mode">🌓</button>
         </div>
     </header>
 
@@ -64,6 +67,25 @@
             </h2>
             <p class="mb-4">Alright, let's make things look good! ✨ CSS (Cascading Style Sheets) is the language used to describe the presentation of a document written in HTML. It handles the layout, colors, fonts, spacing, responsive adjustments, and animations – everything that makes a site visually appealing and user-friendly.</p>
             <p class="mb-4">We'll cover everything from basic syntax and selectors to layout models like Flexbox and Grid, and responsive design principles.</p>
+
+            <section id="css-demo" class="content-section" aria-labelledby="css-demo-heading">
+                <h2 id="css-demo-heading" class="text-2xl font-semibold section-header">Interactive Flexbox Demo 🎮</h2>
+                <div id="flex-container" class="demo-flex-container mb-4">
+                    <div class="demo-flex-item">1</div>
+                    <div class="demo-flex-item">2</div>
+                    <div class="demo-flex-item">3</div>
+                </div>
+                <label for="flex-justify-select" class="mr-2">Justify Content:</label>
+                <select id="flex-justify-select" class="mr-2 p-1 border rounded">
+                    <option value="flex-start">flex-start</option>
+                    <option value="center">center</option>
+                    <option value="flex-end">flex-end</option>
+                    <option value="space-between">space-between</option>
+                    <option value="space-around">space-around</option>
+                    <option value="space-evenly">space-evenly</option>
+                </select>
+                <button id="flex-demo-action" class="cta-button">Apply</button>
+            </section>
 
             <h3>1. Syntax & Inclusion Methods 🔌</h3>
             <h4>Basic Rule Structure 📜</h4>
@@ -305,7 +327,7 @@
             <p>Define reusable values directly in CSS. Great for theming and maintainability.</p>
             <div class="code-block-wrapper">
                 <pre><code class="language-css">
-<span class="css-comment">/* Define variables on the :root (<html> element) */</span>
+<span class="css-comment">/* Define variables on the :root (&lt;html&gt; element) */</span>
 <span class="css-selector">:root</span> {
   <span class="css-property">--primary-color</span>: <span class="css-value">#6366f1</span>; <span class="css-comment">/* indigo-500 */</span>
   <span class="css-property">--text-dark</span>: <span class="css-value">#1f2937</span>; <span class="css-comment">/* gray-800 */</span>
