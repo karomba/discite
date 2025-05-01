@@ -515,6 +515,27 @@ img {
     font-size: 0.875rem; /* text-sm */
 }
 
+/* === Dark Mode Toggle Styles === */
+body.dark-mode {
+    filter: invert(0.9) hue-rotate(180deg);
+    transition: filter 0.3s ease;
+}
+
+body.dark-mode img,
+body.dark-mode svg {
+    filter: invert(1) hue-rotate(180deg);
+}
+
+/* Dark mode toggle button styling */
+#dark-mode-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin-left: auto;
+    color: inherit;
+}
+
 /* === Responsive Adjustments === */
 @media (min-width: 768px) { /* Medium screens and up */
     .header-container {
@@ -536,4 +557,37 @@ img {
     .content-section {
         padding: 2rem 2.5rem;
     }
+}
+
+/* === Flexbox Demo Styles === */
+.demo-flex-container {
+    display: flex;
+    border: 1px solid rgba(75, 85, 99, 0.3);
+    padding: 1rem;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+}
+.demo-flex-item {
+    width: 3rem;
+    height: 3rem;
+    background-color: #7c3aed; /* violet-600 */
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.375rem;
+    margin: 0.25rem;
+}
+
+/* === Search Input Styles === */
+#site-search {
+    margin-left: 1rem;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid #cbd5e1; /* slate-300 */
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #1f2937;
 }
