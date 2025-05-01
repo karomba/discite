@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discite’s CSS page covers essentials of CSS, including Flexbox & Grid, interactive demos and quizzes.">
     <title>Discite: CSS Fundamentals 🎨 (Comprehensive)</title>
+    <meta name="description" content="Learn CSS fundamentals on Discite. Covers selectors, cascade, box model, Flexbox, Grid, responsive design, transitions, variables, and best practices.">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,9 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
-<body>
-
-    <header class="sticky-header">
+<body class=""> <header class="sticky-header">
         <div class="container header-container">
              <div class="logo">
               <a href="index.html" aria-label="Discite Homepage"> <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -48,6 +46,12 @@
                 </svg>
                 </a>
             </div>
+            <div class="header-controls">
+                <input type="search" id="site-search" name="q" placeholder="Search site..." aria-label="Search through site content" class="search-input">
+                <button id="theme-toggle" type="button" class="theme-toggle-button" aria-label="Toggle dark mode">
+                    <span class="light-icon">☀️</span> <span class="dark-icon" style="display: none;">🌙</span>
+                </button>
+            </div>
             <nav class="main-nav" aria-label="Main navigation">
                 <a href="index.html" class="nav-link">Introduction</a>
                 <a href="html.html" class="nav-link">HTML</a>
@@ -55,8 +59,6 @@
                 <a href="javascript.html" class="nav-link">JavaScript</a>
                 <a href="tools.html" class="nav-link">Tools & Next Steps</a>
             </nav>
-            <input id="site-search" type="search" placeholder="Search..." aria-label="Search site" />
-            <button id="dark-mode-toggle" aria-label="Toggle dark mode">🌓</button>
         </div>
     </header>
 
@@ -67,25 +69,6 @@
             </h2>
             <p class="mb-4">Alright, let's make things look good! ✨ CSS (Cascading Style Sheets) is the language used to describe the presentation of a document written in HTML. It handles the layout, colors, fonts, spacing, responsive adjustments, and animations – everything that makes a site visually appealing and user-friendly.</p>
             <p class="mb-4">We'll cover everything from basic syntax and selectors to layout models like Flexbox and Grid, and responsive design principles.</p>
-
-            <section id="css-demo" class="content-section" aria-labelledby="css-demo-heading">
-                <h2 id="css-demo-heading" class="text-2xl font-semibold section-header">Interactive Flexbox Demo 🎮</h2>
-                <div id="flex-container" class="demo-flex-container mb-4">
-                    <div class="demo-flex-item">1</div>
-                    <div class="demo-flex-item">2</div>
-                    <div class="demo-flex-item">3</div>
-                </div>
-                <label for="flex-justify-select" class="mr-2">Justify Content:</label>
-                <select id="flex-justify-select" class="mr-2 p-1 border rounded">
-                    <option value="flex-start">flex-start</option>
-                    <option value="center">center</option>
-                    <option value="flex-end">flex-end</option>
-                    <option value="space-between">space-between</option>
-                    <option value="space-around">space-around</option>
-                    <option value="space-evenly">space-evenly</option>
-                </select>
-                <button id="flex-demo-action" class="cta-button">Apply</button>
-            </section>
 
             <h3>1. Syntax & Inclusion Methods 🔌</h3>
             <h4>Basic Rule Structure 📜</h4>
@@ -327,7 +310,7 @@
             <p>Define reusable values directly in CSS. Great for theming and maintainability.</p>
             <div class="code-block-wrapper">
                 <pre><code class="language-css">
-<span class="css-comment">/* Define variables on the :root (&lt;html&gt; element) */</span>
+<span class="css-comment">/* Define variables on the :root (<html> element) */</span>
 <span class="css-selector">:root</span> {
   <span class="css-property">--primary-color</span>: <span class="css-value">#6366f1</span>; <span class="css-comment">/* indigo-500 */</span>
   <span class="css-property">--text-dark</span>: <span class="css-value">#1f2937</span>; <span class="css-comment">/* gray-800 */</span>
